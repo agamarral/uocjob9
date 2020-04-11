@@ -1,0 +1,35 @@
+<h3>Job offers</h3>
+<table mat-table [dataSource]="jobOffers" class="mat-elevation-z8">
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- company name Column -->
+    <ng-container matColumnDef="companyName">
+        <th mat-header-cell *matHeaderCellDef> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
+    </ng-container>
+
+    <!-- category column -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Familia Profesional </th>
+        <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- province column -->
+    <ng-container matColumnDef="province">
+        <th mat-header-cell *matHeaderCellDef> Província </th>
+        <td mat-cell *matCellDef="let element"> {{element.province.name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="offersDisplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: offersDisplayedColumns" (click)="viewOfferDetail(row)"></tr>
+</table>

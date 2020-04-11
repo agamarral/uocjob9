@@ -1,0 +1,131 @@
+<mat-dialog-content [formGroup]="personalDetailsDlgForm">
+
+    <mat-card>
+
+        <mat-card-header>
+            <div mat-card-avatar class="personal-picture"></div>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Nombre" name="name" formControlName="name">
+                <mat-error *ngIf="personalDetailsDlgForm.get('name').hasError('pattern')">
+                    {{errors.pattern}}
+                </mat-error>
+                <mat-error
+                    *ngIf="personalDetailsDlgForm.get('name').hasError('minlength') || personalDetailsDlgForm.get('name').hasError('maxlength') ">
+                    {{errors.namelength}}
+                </mat-error>
+                <mat-error *ngIf="personalDetailsDlgForm.get('name').hasError('invalidName')">
+                    {{errors.spaces}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Apellidos</mat-label>
+                <input matInput type="text" placeholder="Apellidos" name="surname" formControlName="surname">
+                <mat-error *ngIf="personalDetailsDlgForm.get('surname').hasError('pattern')">
+                    {{errors.pattern}}
+                </mat-error>
+                <mat-error
+                    *ngIf="personalDetailsDlgForm.get('surname').hasError('minlength') || personalDetailsDlgForm.get('name').hasError('maxlength') ">
+                    {{errors.namelength}}
+                </mat-error>
+                <mat-error *ngIf="personalDetailsDlgForm.get('surname').hasError('invalidName')">
+                    {{errors.spaces}}
+                </mat-error>
+            </mat-form-field>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Fecha de nacimiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Teléfono de contacto principal</mat-label>
+                    <input matInput ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" formControlName="phone"
+                        (hasError)="hasError($event)" [errorStateMatcher]="matcher" />
+                    <mat-error *ngIf="
+                        !personalDetailsDlgForm.get('phone').valid &&
+                        personalDetailsDlgForm.get('phone').touched
+                        ">This is an <strong>invalid</strong> phone number.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Teléfono de contacto secundario</mat-label>
+                    <input matInput ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}"
+                        formControlName="phone2" />
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Tipo de documento</mat-label>
+                    <mat-select formControlName="documentType">
+                        <mat-option value="NIF">NIF</mat-option>
+                        <mat-option value="NIF">NIE</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>NIF/NIE</mat-label>
+                    <input matInput type="text" placeholder="NIF/NIE" name="documentNumber"
+                        [errorStateMatcher]="matcher" formControlName="documentNumber">
+                    <mat-error *ngIf="personalDetailsDlgForm.get('documentNumber').hasError('invalidNif')">
+                        {{errors.id}}
+                    </mat-error>
+
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Dirección</mat-label>
+                    <input matInput type="text" placeholder="Dirección" name="address" formControlName="address">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Provincia</mat-label>
+                    <mat-select formControlName="province" (selectionChange)="changeTown()">
+                        <mat-option *ngFor="let prov of provinceList" [value]="prov">{{prov}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Municipio</mat-label>
+                    <mat-select formControlName="municipe">
+                        <mat-option *ngFor="let town of townList" [value]="town">{{town}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Permiso de conducir</mat-label>
+                    <mat-select formControlName="license" multiple>
+                        <mat-option *ngFor="let lic of licenseList" [value]="lic">{{lic}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Acerca de mí</mat-label>
+                    <textarea matInput [matTextareaAutosize] name="aboutMe" formControlName="aboutMe"></textarea>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Otras competencias</mat-label>
+                    <textarea matInput [matTextareaAutosize] name="otherCompetences"
+                        formControlName="otherCompetences"></textarea>
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Cerrar</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Guardar</button>
+</mat-dialog-actions>

@@ -1,0 +1,826 @@
+[
+    {
+        "category": {
+            "uid": "001",
+            "name": "Actividades Físicas y Deportivas"
+        },
+        "titles": [
+            {
+                "uid": "1001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Conducción de Actividades Físico-Deportivas en el Medio Natural"
+            },
+            {
+                "uid": "1002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Acondicionamiento Físico"
+            },
+            {
+                "uid": "1003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Enseñanza y Animación Sociodeportiva"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "002",
+            "name": "Administración y Gestión"
+        },
+        "titles": [
+            {
+                "uid": "2001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Servicios Administrativos"
+            },
+            {
+                "uid": "2002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Gestión Administrativa"
+            },
+            {
+                "uid": "2003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Administración y Finanzas"
+            },
+            {
+                "uid": "2004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Asistencia a la Dirección"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "003",
+            "name": "Agraria"
+        },
+        "titles": [
+            {
+                "uid": "3001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Agro-jardinería y Composiciones Florales"
+            },
+            {
+                "uid": "3002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Aprovechamiento y Conservación del Medio Natural"
+            },
+            {
+                "uid": "3003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Jardinería y Floristería"
+            },
+            {
+                "uid": "3004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Producción Agroecológica"
+            },
+            {
+                "uid": "3005",
+                "gradeLevel": "middle",
+                "name": "Técnico en Producción Agropecuaria"
+            },
+            {
+                "uid": "3006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Ganadería y Asistencia en Sanidad Animal"
+            },
+            {
+                "uid": "3007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Gestión Forestal y del Medio Natural"
+            },
+            {
+                "uid": "3008",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Paisajismo y Medio Rural"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "004",
+            "name": "Artes Gráficas"
+        },
+        "titles": [
+            {
+                "uid": "4001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Artes Gráficas"
+            },
+            {
+                "uid": "4002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Impresión Gráfica"
+            },
+            {
+                "uid": "4003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Preimpresión Digital"
+            },
+            {
+                "uid": "4004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Diseño y Gestión de la Producción Gráfica"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "005",
+            "name": "Comercio y Márketing"
+        },
+        "titles": [
+            {
+                "uid": "5001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Servicios Comerciales"
+            },
+            {
+                "uid": "5002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Actividades Comerciales"
+            },
+            {
+                "uid": "5003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Comercio Internacional"
+            },
+            {
+                "uid": "5004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Gestión de Ventas y Espacios Comerciales"
+            },
+            {
+                "uid": "5005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Marketing y Publicidad"
+            },
+            {
+                "uid": "5006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Transporte y Logística"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "006",
+            "name": "Edificación y Obra Civil"
+        },
+        "titles": [
+            {
+                "uid": "6001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Obras de Interior, Decoración y Rehabilitación"
+            },
+            {
+                "uid": "6002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Proyectos de Edificación"
+            },
+            {
+                "uid": "6003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Proyectos de Obra Civil"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "007",
+            "name": "Electricidad y Electrónica"
+        },
+        "titles": [
+            {
+                "uid": "7001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Electricidad y Electrónica"
+            },
+            {
+                "uid": "7002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Instalaciones de Telecomunicaciones"
+            },
+            {
+                "uid": "7003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Instalaciones Eléctricas y Automáticas"
+            },
+            {
+                "uid": "7004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Automatización y Robótica Industrial"
+            },
+            {
+                "uid": "7005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Mantenimiento Electrónico"
+            },
+            {
+                "uid": "7006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Sistemas de Telecomunicaciones e Informáticos"
+            },
+            {
+                "uid": "7007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Sistemas Electrotécnicos y Automatizados"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "008",
+            "name": "Energía y Agua"
+        },
+        "titles": [
+            {
+                "uid": "8001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Redes y Estaciones de Tratamiento de Aguas"
+            },
+            {
+                "uid": "8002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Eficiencia Energética y Energía Solar Térmica"
+            },
+            {
+                "uid": "8003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Energías Renovables"
+            },
+            {
+                "uid": "8004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Gestión del Agua"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "009",
+            "name": "Fabricación Mecánica"
+        },
+        "titles": [
+            {
+                "uid": "9001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Fabricación de Elementos Metálicos"
+            },
+            {
+                "uid": "9002",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Fabricación y Montaje"
+            },
+            {
+                "uid": "9003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Joyería"
+            },
+            {
+                "uid": "9004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Mecanizado"
+            },
+            {
+                "uid": "9005",
+                "gradeLevel": "middle",
+                "name": "Técnico en Soldadura y Calderería"
+            },
+            {
+                "uid": "9006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Diseño en Fabricación Mecánica"
+            },
+            {
+                "uid": "9007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Programación de la Producción en Fabricación Mecánica"
+            },
+            {
+                "uid": "9008",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Óptica de Anteojería"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "010",
+            "name": "Hostelería y Turismo"
+        },
+        "titles": [
+            {
+                "uid": "10001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Actividades de Panadería y Pastelería"
+            },
+            {
+                "uid": "10002",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Alojamiento y Lavandería"
+            },
+            {
+                "uid": "10003",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Cocina y Restauración"
+            },
+            {
+                "uid": "10004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Cocina y Gastronomía"
+            },
+            {
+                "uid": "10005",
+                "gradeLevel": "middle",
+                "name": "Técnico en Servicios en Restauración"
+            },
+            {
+                "uid": "10006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Agencias de Viajes y Gestión de Eventos"
+            },
+            {
+                "uid": "10007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Dirección de Cocina"
+            },
+            {
+                "uid": "10008",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Dirección de Servicios de Restauración"
+            },
+            {
+                "uid": "10009",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Gestión de Alojamientos Turísticos"
+            },
+            {
+                "uid": "10010",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Guía, Información y Asistencias Turísticas"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "011",
+            "name": "Imagen Personal"
+        },
+        "titles": [
+            {
+                "uid": "11001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Peluquería y Estética"
+            },
+            {
+                "uid": "11002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Estética y Belleza"
+            },
+            {
+                "uid": "11003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Peluquería y Cosmética Capilar"
+            },
+            {
+                "uid": "11004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Asesoría de Imagen Personal y Corporativa"
+            },
+            {
+                "uid": "11005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Caracterización y Maquillaje Profesional"
+            },
+            {
+                "uid": "11006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Estilismo y Dirección de Peluquería"
+            },
+            {
+                "uid": "11007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Estética Integral y Bienestar"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "011",
+            "name": "Imagen y Sonido"
+        },
+        "titles": [
+            {
+                "uid": "11001",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Sonido para Audiovisuales y Espectáculos"
+            },
+            {
+                "uid": "11002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Animaciones 3D, Juegos y Entornos Interactivos"
+            },
+            {
+                "uid": "11003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Vídeo, Disc-jockey y Sonido"
+            },
+            {
+                "uid": "11004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Iluminación, Captación y Tratamiento de Imagen"
+            },
+            {
+                "uid": "11005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Realización de Proyectos Audiovisuales y Espectáculos"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "012",
+            "name": "Industrias Alimentarias"
+        },
+        "titles": [
+            {
+                "uid": "12001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Industrias Alimentarias"
+            },
+            {
+                "uid": "12002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Aceites de Oliva y Vinos"
+            },
+            {
+                "uid": "12003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Elaboración de Productos Alimenticios"
+            },
+            {
+                "uid": "12004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Panadería, Repostería y Confitería"
+            },
+            {
+                "uid": "12005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Procesos y Calidad en la Industria Alimentaria"
+            },
+            {
+                "uid": "12006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Vitivinicultura"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "013",
+            "name": "Informática y Comunicaciones"
+        },
+        "titles": [
+            {
+                "uid": "13001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Informática de Oficina"
+            },
+            {
+                "uid": "13002",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Informática y Comunicaciones"
+            },
+            {
+                "uid": "13003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Sistemas Microinformáticos y Redes"
+            },
+            {
+                "uid": "13004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Administración de Sistemas Informáticos en Red"
+            },
+            {
+                "uid": "13005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Desarrollo de Aplicaciones Web"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "014",
+            "name": "Instalación y Mantenimiento"
+        },
+        "titles": [
+            {
+                "uid": "14001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Mantenimiento de Viviendas"
+            },
+            {
+                "uid": "14002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Instalaciones de Producción de Calor"
+            },
+            {
+                "uid": "14003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Instalaciones Frigoríficas y de Climatización"
+            },
+            {
+                "uid": "14004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Mantenimiento Electromecánico"
+            },
+            {
+                "uid": "14005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Desarrollo de Proyectos de Instalaciones Térmicas y de Fluidos"
+            },
+            {
+                "uid": "14006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Mantenimiento de Instalaciones Térmicas y de Fluidos"
+            },
+            {
+                "uid": "14007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Mecatrónica Industrial"
+            },
+            {
+                "uid": "14008",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Prevención de Riesgos Profesionales"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "015",
+            "name": "Madera, Mueble y Corcho"
+        },
+        "titles": [
+            {
+                "uid": "15001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Carpintería y Mueble"
+            },
+            {
+                "uid": "15002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Carpintería y Mueble"
+            },
+            {
+                "uid": "15003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Diseño y Amueblamiento"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "016",
+            "name": "Marítimo-Pesquera"
+        },
+        "titles": [
+            {
+                "uid": "16001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Cultivos Acuícolas"
+            },
+            {
+                "uid": "16002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Navegación y Pesca de Litoral"
+            },
+            {
+                "uid": "16003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Operaciones Subacuáticas e Hiperbáricas"
+            },
+            {
+                "uid": "16004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Acuicultura"
+            },
+            {
+                "uid": "16005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Transporte Marítimo y Pesca de Altura"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "017",
+            "name": "Química"
+        },
+        "titles": [
+            {
+                "uid": "17001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Operaciones de Laboratorio"
+            },
+            {
+                "uid": "17002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Planta Química"
+            },
+            {
+                "uid": "17003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Laboratorio de Análisis y de Control de Calidad"
+            },
+            {
+                "uid": "17004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Química Industrial"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "018",
+            "name": "Sanidad"
+        },
+        "titles": [
+            {
+                "uid": "18001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Cuidados Auxiliares de Enfermería"
+            },
+            {
+                "uid": "18002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Emergencias Sanitarias"
+            },
+            {
+                "uid": "18003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Farmacia y Parafarmacia"
+            },
+            {
+                "uid": "18004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Anatomía Patológica y Citodiagnóstico"
+            },
+            {
+                "uid": "18005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Dietética"
+            },
+            {
+                "uid": "18006",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Documentación y Administración Sanitarias"
+            },
+            {
+                "uid": "18007",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Higiene Bucodental"
+            },
+            {
+                "uid": "18008",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear"
+            },
+            {
+                "uid": "18009",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Laboratorio Clínico y Biomédico"
+            },
+            {
+                "uid": "18010",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Prótesis Dentales"
+            },
+            {
+                "uid": "18011",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Radioterapia y Dosimetría"
+            },
+            {
+                "uid": "18012",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Salud Ambiental"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "019",
+            "name": "Seguridad y Medio Ambiente"
+        },
+        "titles": [
+            {
+                "uid": "19001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Emergencias y Protección Civil"
+            },
+            {
+                "uid": "19002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Educación y Control Ambiental"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "020",
+            "name": "Servicios Socioculturales y a la Comunidad"
+        },
+        "titles": [
+            {
+                "uid": "20001",
+                "gradeLevel": "middle",
+                "name": "Técnico en Atención a Personas en Situación de Dependencia"
+            },
+            {
+                "uid": "20002",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Animación Sociocultural y Turística"
+            },
+            {
+                "uid": "20003",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Educación Infantil"
+            },
+            {
+                "uid": "20004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Integración Social"
+            },
+            {
+                "uid": "20005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Mediación Comunicativa"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "021",
+            "name": "Textil, Confección y Piel"
+        },
+        "titles": [
+            {
+                "uid": "20001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Arreglo y Reparación de Artículos Textiles y de Piel"
+            },
+            {
+                "uid": "20002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Calzado y Complementos de Moda"
+            },
+            {
+                "uid": "20003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Confección y Moda"
+            },
+            {
+                "uid": "20004",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Patronaje y Moda"
+            }
+        ]
+    },
+    {
+        "category": {
+            "uid": "022",
+            "name": "Transporte y Mantenimiento de Vehículos"
+        },
+        "titles": [
+            {
+                "uid": "20001",
+                "gradeLevel": "basic",
+                "name": "Profesional Básico en Mantenimiento de Vehículos"
+            },
+            {
+                "uid": "20002",
+                "gradeLevel": "middle",
+                "name": "Técnico en Carrocería"
+            },
+            {
+                "uid": "20003",
+                "gradeLevel": "middle",
+                "name": "Técnico en Electromecánica de Maquinaria"
+            },
+            {
+                "uid": "20004",
+                "gradeLevel": "middle",
+                "name": "Técnico en Electromecánica de Vehículos Automóviles"
+            },
+            {
+                "uid": "20005",
+                "gradeLevel": "superior",
+                "name": "Técnico Superior en Automoción"
+            }
+        ]
+    }
+]
