@@ -1,11 +1,6 @@
 <mat-divider inset=“true”></mat-divider>
 <h3>Idiomas</h3>
 <table mat-table [dataSource]="languages" class="mat-elevation-z8">
-    <!-- id Column -->
-    <ng-container matColumnDef="uid">
-        <th mat-header-cell *matHeaderCellDef> uid </th>
-        <td mat-cell *matCellDef="let element"> {{element.uid}} </td>
-    </ng-container>
 
     <!-- language name Column -->
     <ng-container matColumnDef="languageName">
@@ -31,9 +26,9 @@
         <mat-header-cell *matHeaderCellDef>
             <button class="mat-raised-button" (click)="createNew()">Añadir idioma</button>
         </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            <button class="mat-raised-button" (click)="edit(element)">Editar</button>
-            <button class="mat-raised-button" (click)="cancelOrDelete(element)">Borrar</button>
+        <mat-cell *matCellDef="let element;let i = index">
+            <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
+            <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
         </mat-cell>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="languagesDisplayedColumns"></tr>

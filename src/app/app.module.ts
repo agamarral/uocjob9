@@ -40,6 +40,7 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   declarations: [
     AppComponent,
+
     //SigninComponent
   ],
   providers: [],

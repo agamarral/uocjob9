@@ -38,7 +38,7 @@ export class StudentsService {
     this.http.get<User[]>(AppSettings.API_ENDPOINT_USER).subscribe(
       (users) => {
         let user = users.find((cur: any) => cur.username === username);
-        user.offers.push(offer);
+        user.offers.push(offer.id);
         console.log("User " + username + " has been subscribed to offer " + offer.id);
         this.http.put<User>(AppSettings.API_ENDPOINT_USER, user);
       }
@@ -50,7 +50,7 @@ export class StudentsService {
       (users) => {
         let user = users.find((cur: any) => cur.username === username);
 
-        user.offers = user.offers.filter((offer) => offer.id !== offerId);
+        user.offers = user.offers.filter((id) => id !== offerId);
 
         console.log("User " + username + " has been unsubscribed from offer " + offerId);
         this.http.put<User>(AppSettings.API_ENDPOINT_USER, user);

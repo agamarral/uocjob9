@@ -22,10 +22,9 @@ export class PersonalDetailsComponent implements OnInit {
     switchMap(id => this.usersStorefacade.getUserById(id))
   );
 
-
-  isUsernameValid: boolean = true;
-  isPasswordValid: boolean = true;
-  isReadOnly = false;
+  public isUsernameValid: boolean = true;
+  public isPasswordValid: boolean = true;
+  public isReadOnly = false;
 
 
   constructor(private dialog: MatDialog, private usersStorefacade: UsersStoreFacade, private route: ActivatedRoute) {

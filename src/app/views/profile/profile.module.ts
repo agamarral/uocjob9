@@ -18,6 +18,8 @@ import { environment } from '@environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
 import { StudentsService } from '@shared/services/students.service';
+import { WorkExperiencesComponent } from '@views/work-experiences/work-experiences.component';
+import { WorkExperienceDetailsDialogComponent } from '@views/work-experience-details-dialog/work-experience-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { StudentsService } from '@shared/services/students.service';
     PersonalDetailsDialogComponent,
     StudyDetailsComponent,
     StudyDetailsDialogComponent,
+    WorkExperiencesComponent,
+    WorkExperienceDetailsDialogComponent,
     LanguageDetailsComponent,
     LanguageDetailsDialogComponent,
   ],
@@ -49,6 +53,7 @@ import { StudentsService } from '@shared/services/students.service';
   entryComponents: [
     PersonalDetailsDialogComponent,
     StudyDetailsDialogComponent,
+    WorkExperiencesComponent,
     LanguageDetailsDialogComponent
   ]
 })

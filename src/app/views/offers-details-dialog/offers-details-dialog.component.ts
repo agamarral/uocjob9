@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 export class OffersDetailsDialogComponent implements OnInit {
   public offersDetailsDlgForm: FormGroup;
   public titleDisplayedColumns: string[] = ['titleName'];
-  public dataSource: Title[];
+  public titles: Title[];
   public showRemoveButton: boolean = false;
 
 
@@ -21,15 +21,14 @@ export class OffersDetailsDialogComponent implements OnInit {
 
 
     this.offersDetailsDlgForm = this.formBuilder.group({
-      id: [{ value: data.id, disabled: false }, null],
-      company: [data.company.name, Validators.required],
-      position: [data.job.name, Validators.required],
-      jobDescription: [data.job.description, Validators.required],
-      province: [data.province.name, Validators.required],
-      town: [data.municipe.name, Validators.required],
-      jobCategory: [data.category.name, Validators.required]
+      company: [data.jobOffer.company.name, Validators.required],
+      position: [data.jobOffer.job.name, Validators.required],
+      jobDescription: [data.jobOffer.job.description, Validators.required],
+      province: [data.jobOffer.province.name, Validators.required],
+      town: [data.jobOffer.municipe.name, Validators.required],
+      jobCategory: [data.jobOffer.category.name, Validators.required]
     });
-    this.dataSource = data.title;
+    this.titles = data.jobOffer.title;
     this.showRemoveButton = data.isFiltered;
     console.log('Is filtered ' + this.showRemoveButton);
 

@@ -1,0 +1,43 @@
+<mat-divider inset=“true”></mat-divider>
+<h3>Experiencia laboral</h3>
+<table mat-table [dataSource]="experiences" class="mat-elevation-z8">
+
+
+    <!-- company name Column -->
+    <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+    </ng-container>
+
+    <!-- position column -->
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Puesto </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+
+    <!-- start Date Column -->
+    <ng-container matColumnDef="startdate">
+        <th mat-header-cell *matHeaderCellDef> Desde </th>
+        <td mat-cell *matCellDef="let element"> {{element.startdate}} </td>
+    </ng-container>
+
+    <!-- end Date Column -->
+    <ng-container matColumnDef="enddate">
+        <th mat-header-cell *matHeaderCellDef> Hasta </th>
+        <td mat-cell *matCellDef="let element"> {{element.enddate}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button class="mat-raised-button" (click)="createNew()">Añadir experiencia</button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element;let i = index">
+            <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
+            <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
+        </mat-cell>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="experiencesDisplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: experiencesDisplayedColumns;let i = index"></tr>
+</table>

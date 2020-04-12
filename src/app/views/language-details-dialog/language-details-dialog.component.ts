@@ -32,7 +32,6 @@ export class LanguageDetailsDialogComponent implements OnInit {
     this.currentLanguage = data;
 
     this.languageDetailsDlgForm = this.formBuilder.group({
-      uid: [{ value: data.uid, disabled: false }, null],
       languageName: [data.name.name, Validators.required],
       other: ['',],
       languageLevel: [data.level.name, Validators.required],
@@ -52,7 +51,7 @@ export class LanguageDetailsDialogComponent implements OnInit {
   }
   save() {
     let lang = <Language>{};
-    lang.uid = this.currentLanguage.uid;
+    lang.uid = -1;
 
     lang.level = languageLevels.find((level) => level.name === this.languageDetailsDlgForm.get('languageLevel').value);
     lang.name = languageCatalog.find((lang) => lang.name === this.languageDetailsDlgForm.get('languageName').value);

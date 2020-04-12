@@ -2,5 +2,7 @@ export interface Experience {
   uid: number;
   company: string;
   position: string;
-  date: string;
+  startdate: string;
+  enddate: string;
+  tasks: string;
 }

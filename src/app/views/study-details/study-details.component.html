@@ -1,11 +1,6 @@
 <mat-divider inset=“true”></mat-divider>
 <h3>Formación académica</h3>
 <table mat-table [dataSource]="studies" class="mat-elevation-z8">
-  <!-- id Column -->
-  <ng-container matColumnDef="uid">
-    <th mat-header-cell *matHeaderCellDef> uid </th>
-    <td mat-cell *matCellDef="let element"> {{element.uid}} </td>
-  </ng-container>
 
   <!-- level Column -->
   <ng-container matColumnDef="level">
@@ -44,9 +39,9 @@
     <mat-header-cell *matHeaderCellDef>
       <button class="mat-raised-button" (click)="createNew()">Añadir formación</button>
     </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <button class="mat-raised-button" (click)="edit(element)">Editar</button>
-      <button class="mat-raised-button" (click)="cancelOrDelete(element)">Borrar</button>
+    <mat-cell *matCellDef="let element;let i = index">
+      <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
+      <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
     </mat-cell>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="studiesDisplayedColumns"></tr>

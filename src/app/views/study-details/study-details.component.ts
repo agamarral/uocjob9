@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { User } from '@shared/models/user.model';
 
-
 @Component({
   selector: 'app-study-details',
   templateUrl: './study-details.component.html',
@@ -17,12 +16,13 @@ import { User } from '@shared/models/user.model';
 })
 export class StudyDetailsComponent implements OnInit {
   public studies: (CollegeStudy | VocationalStudy)[];
+  public currentStudy: (CollegeStudy | VocationalStudy);
   public dataSource: string[];
-  public id: number;
+  public user: User;
 
-  studiesDisplayedColumns: string[] = ['uid', 'level', 'title', 'institution', 'date', 'certificate', 'actions'];
+  studiesDisplayedColumns: string[] = ['level', 'title', 'institution', 'date', 'certificate', 'actions'];
 
-  @Input() public user: User;
+
   user$: Observable<User> = this.route.params.pipe(
     map(params => params.id),
     switchMap(id => this.usersStorefacade.getUserById(id))
@@ -55,19 +55,24 @@ export class StudyDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(StudyDetailsDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
       data => {
-        data.uid = this.user.studies.map((value) => value.uid).reduce((total, cur) => { return cur > total ? cur : total }) + 1;
 
         let newUser: Partial<User> = {};
         newUser.id = this.user.id;
         newUser.studies = [];
 
+        let newStudy = <CollegeStudy | VocationalStudy>{};
+        Object.assign(newStudy, data);
+        newStudy.uid = this.user.studies.map((value) => value.uid).reduce((total, cur) => { return cur > total ? cur : total }) + 1;
+
+
+        newUser.studies.push(newStudy);
         this.user.studies.map(value => newUser.studies.push(value));
-        newUser.studies.push(data);
+
         console.log('data has been pushed');
         this.usersStorefacade.updateUser(newUser);
       });
   }
-  edit(element) {
+  edit(element, idx) {
 
     const dialogConfig = new MatDialogConfig();
 
@@ -75,6 +80,7 @@ export class StudyDetailsComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = element;
+    this.currentStudy = this.user.studies[idx];
 
     const dialogRef = this.dialog.open(StudyDetailsDialogComponent, dialogConfig);
 
@@ -83,17 +89,24 @@ export class StudyDetailsComponent implements OnInit {
 
         let newUser: Partial<User> = {};
         newUser.id = this.user.id;
-        newUser.studies = this.user.studies.filter((cur) => cur.uid !== data.uid);
-        newUser.studies.push(data);
+        newUser.studies = this.user.studies.filter((cur) => cur.uid !== this.currentStudy.uid);
+
+        let newStudy = <CollegeStudy | VocationalStudy>{};
+        newStudy.uid = this.currentStudy.uid;
+        Object.assign(newStudy, data);
+
+        newUser.studies.push(newStudy);
 
         this.usersStorefacade.updateUser(newUser);
       });
   }
-  cancelOrDelete(element) {
+  cancelOrDelete(idx) {
+
+    this.currentStudy = this.user.studies[idx];
 
     let newUser: Partial<User> = {};
     newUser.id = this.user.id;
-    newUser.studies = this.user.studies.filter((cur) => cur.uid !== element.uid);
+    newUser.studies = this.user.studies.filter((cur) => cur.uid !== this.currentStudy.uid);
     this.usersStorefacade.updateUser(newUser);
   }
 }

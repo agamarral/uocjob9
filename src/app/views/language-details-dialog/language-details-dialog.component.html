@@ -7,9 +7,6 @@
         <mat-card-content>
             <div>
                 <mat-form-field>
-                    <input matInput type="number" formControlName="uid">
-                </mat-form-field>
-                <mat-form-field>
                     <mat-label>Idioma</mat-label>
                     <mat-select formControlName="languageName" #languageSelect>
                         <mat-option *ngFor="let lang of languageList" [value]="lang">{{lang}}</mat-option>

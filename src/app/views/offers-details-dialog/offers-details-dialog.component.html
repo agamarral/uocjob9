@@ -8,9 +8,6 @@
             <fieldset>
                 <legend>Detalle de la oferta</legend>
                 <mat-form-field>
-                    <input matInput type="number" formControlName="id">
-                </mat-form-field>
-                <mat-form-field>
                     <mat-label>Empresa</mat-label>
                     <input matInput type="text" readonly="true" name="company" formControlName="company">
                 </mat-form-field>
@@ -51,7 +48,7 @@
                     </mat-form-field>
                 </div>
                 <h3>Títulos compatibles con la oferta</h3>
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <table mat-table [dataSource]="titles" class="mat-elevation-z8">
                     <!-- id Column -->
                     <ng-container matColumnDef="id">
                         <th mat-header-cell *matHeaderCellDef> id </th>

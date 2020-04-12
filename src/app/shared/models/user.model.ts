@@ -1,6 +1,5 @@
 import { VocationalStudy, CollegeStudy } from '@shared/models/study.model';
 import { Language } from '@shared/models/language.model';
-import { Offer } from '@shared/models/offer.model';
 import { Experience } from '@shared/models/experience.model';
 
 export interface UserAddress {
@@ -42,7 +41,7 @@ export interface User {
   studies: (VocationalStudy | CollegeStudy)[];
   experiences: Experience[];
   languages: Language[];
-  offers: Offer[];
+  offers: number[];
 }
 
 export function createNewUser(user?: User): User {

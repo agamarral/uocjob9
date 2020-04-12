@@ -1,0 +1,47 @@
+<mat-dialog-content [formGroup]="experienceDetailsDlgForm">
+
+    <mat-card>
+        <mat-card-header>
+            <h3 mat-card-title>Experiencia profesional</h3>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <mat-label>Empresa</mat-label>
+                    <input matInput type="text" name="company" formControlName="company">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Puesto</mat-label>
+                    <input matInput type="text" name="position" formControlName="position">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Desde</mat-label>
+                    <input matInput [matDatepicker]="startpicker" formControlName="startdate">
+                    <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #startpicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Hasta</mat-label>
+                    <input matInput [matDatepicker]="endpicker" formControlName="enddate">
+                    <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #endpicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Tareas realizadas en este puesto</mat-label>
+                    <textarea matInput name="tasks" [matTextareaAutosize] formControlName="tasks"></textarea>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+
+    <mat-dialog-actions>
+        <button class="mat-raised-button" (click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+    </mat-dialog-actions>
