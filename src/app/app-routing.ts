@@ -35,13 +35,22 @@ export const rootRouterConfig: Routes = [
     /* canActivate: [AuthGuard], */
     children: [
       {
-        path: "dashboard/:id",
+        path: "student/dashboard/:id",
         loadChildren: () =>
           import("./views/dashboard/dashboard.module").then(
             m => m.DashboardModule
           ),
 
-        data: { title: "Dashboard", breadcrumb: "DASHBOARD" }
+        data: { title: "Student dashboard" }
+      },
+      {
+        path: "company/dashboard/:id",
+        loadChildren: () =>
+          import("./views/dashboard-company/dashboard-company.module").then(
+            m => m.DashboardCompanyModule
+          ),
+
+        data: { title: "Company dashboard" }
       },
       {
         path: "favorites",
@@ -50,26 +59,39 @@ export const rootRouterConfig: Routes = [
             m => m.FavoritesModule
           ),
 
-        data: { title: "Favorites", breadcrumb: "FAVORITES" }
+        data: { title: "Favorites" }
       },
       {
-        path: "profile/:id",
+        path: "student/profile/:id",
         loadChildren: () =>
           import("./views/profile/profile.module").then(m => m.ProfileModule),
-        data: { title: "Material", breadcrumb: "MATERIAL" }
+        data: { title: "Student Profile" }
       },
 
       {
-        path: "offers/:id",
+        path: "student/offers/:id",
         loadChildren: () =>
           import("./views/offers/offers.module").then(m => m.OffersModule),
-        data: { title: "Offers", breadcrumb: "Offers" }
+        data: { title: "Student Offers" }
       },
       {
-        path: "filtered/offers/:id",
+        path: "student/filtered/offers/:id",
         loadChildren: () =>
           import("./views/offers/offers.module").then(m => m.OffersModule),
-        data: { title: "Filtered Offers", breadcrumb: "Filtered Offers" }
+        data: { title: "Filtered Student Offers" }
+      },
+      {
+        path: "company/profile/:id",
+        loadChildren: () =>
+          import("./views/company-profile/company-profile.module").then(m => m.CompanyProfileModule),
+        data: { title: "Company Profile" }
+      },
+
+      {
+        path: "company/offers/:id",
+        loadChildren: () =>
+          import("./views/company-offers/company-offers.module").then(m => m.CompanyOffersModule),
+        data: { title: "Company Offers" }
       }
     ]
   },

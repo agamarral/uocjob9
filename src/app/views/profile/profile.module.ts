@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
@@ -12,7 +12,6 @@ import { LanguageDetailsComponent } from '../language-details/language-details.c
 import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers } from 'app/reducers';
 import { UsersEffects } from '@shared/state/user/user.effects';
 import { environment } from '@environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,6 +19,7 @@ import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
 import { StudentsService } from '@shared/services/students.service';
 import { WorkExperiencesComponent } from '@views/work-experiences/work-experiences.component';
 import { WorkExperienceDetailsDialogComponent } from '@views/work-experience-details-dialog/work-experience-details-dialog.component';
+import * as fromUsers from '@shared/state/user';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { WorkExperienceDetailsDialogComponent } from '@views/work-experience-det
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
-    StoreModule.forFeature('users', reducers),
+    StoreModule.forFeature('users', fromUsers.reducers),
     EffectsModule.forFeature([UsersEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
@@ -53,7 +53,7 @@ import { WorkExperienceDetailsDialogComponent } from '@views/work-experience-det
   entryComponents: [
     PersonalDetailsDialogComponent,
     StudyDetailsDialogComponent,
-    WorkExperiencesComponent,
+    WorkExperienceDetailsDialogComponent,
     LanguageDetailsDialogComponent
   ]
 })

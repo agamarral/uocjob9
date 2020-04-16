@@ -6,14 +6,12 @@ import * as towndata from '@assets/jsondata/munic.json';
 import { idValidator } from '../validators/nif-validator';
 import { usernameValidator } from '../validators/username-validator';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
-import { User } from '../../shared/models/user.model';
+import { User } from '@shared/models/user.model';
 import moment from 'moment';
-import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, DateAdapter } from '@angular/material/core';
+/* import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, DateAdapter } from '@angular/material/core';
 import {
-  MAT_MOMENT_DATE_FORMATS,
-  MomentDateAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-} from '@angular/material-moment-adapter';
+  MomentDateAdapter
+} from '@angular/material-moment-adapter'; */
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched));
   }
 }
-export const MY_FORMATS = {
+/* export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY'
   },
@@ -31,15 +29,15 @@ export const MY_FORMATS = {
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'MM YYYY'
   }
-};
+}; */
 
 @Component({
   selector: 'app-personal-details-dialog',
   templateUrl: './personal-details-dialog.component.html',
   styleUrls: ['./personal-details-dialog.component.scss'],
-  providers: [
-    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
+  /*   providers: [
+      { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+      { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }] */
 })
 export class PersonalDetailsDialogComponent implements OnInit {
 
@@ -104,8 +102,8 @@ export class PersonalDetailsDialogComponent implements OnInit {
   save() {
 
     let partial: Partial<User> = {};
+    Object.assign(partial, this.user);
 
-    partial.id = this.user.id;
     partial.name = this.personalDetailsDlgForm.get('name').value;
     partial.surname = this.personalDetailsDlgForm.get('surname').value;
 

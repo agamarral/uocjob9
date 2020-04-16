@@ -4,8 +4,8 @@ import { Offer } from '@shared/models/offer.model';
 export enum OfferActionTypes {
     LOAD_ALL_OFFERS = '[Offer] Add all offers',
     LOAD_ALL_OFFER_SUCCESS = '[Offer] Add all offers success',
-    ADD_OFFER = '[Offer] Add offer',
-    ADD_OFFER_SUCCESS = '[Offer] Add offer success',
+    CREATE_OFFER = '[Offer] Create offer',
+    CREATE_OFFER_SUCCESS = '[Offer] Create offer success',
     OFFER_FAILED = '[Offer] failure',
     UPDATE_OFFER = '[Offer] Update offer',
     UPDATE_OFFER_SUCCESS = '[Offer] Update offer success',
@@ -20,12 +20,12 @@ export const loadAllOffersSuccess = createAction(
     OfferActionTypes.LOAD_ALL_OFFER_SUCCESS,
     props<{ offers: Offer[] }>()
 );
-export const addOffer = createAction(
-    OfferActionTypes.ADD_OFFER,
+export const createOffer = createAction(
+    OfferActionTypes.CREATE_OFFER,
     props<{ offer: Offer }>()
 );
-export const addOfferSuccess = createAction(
-    OfferActionTypes.ADD_OFFER,
+export const createOfferSuccess = createAction(
+    OfferActionTypes.CREATE_OFFER_SUCCESS,
     props<{ offer: Offer }>()
 );
 

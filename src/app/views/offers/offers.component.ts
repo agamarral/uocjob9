@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Offer } from '@shared/models/offer.model';
 import { User } from '@shared/models/user.model';
-import { Observable, merge, combineLatest } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { OffersStoreFacade } from '@shared/state/offers/offers.store-facade';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
 import { map, switchMap } from 'rxjs/operators';
@@ -27,13 +27,13 @@ export class OffersComponent implements OnInit {
   public isFiltered: boolean = false;
   public user: User;
   public jobOffers: Offer[] = [];
-  public selectedOffer: number;
+  public selectedOffer: Offer;
   public offersDisplayedColumns: string[] = ['id', 'companyName', 'category', 'date', 'province'];
 
   constructor(private offersStoreFacade: OffersStoreFacade, private usersStoreFacade: UsersStoreFacade,
     private route: ActivatedRoute, private dialog: MatDialog) {
 
-    if (this.route.snapshot.data.title === 'Filtered Offers') {
+    if (this.route.snapshot.data.title === 'Filtered Student Offers') {
       this.isFiltered = true;
     }
     console.log(this.isFiltered);
@@ -57,15 +57,15 @@ export class OffersComponent implements OnInit {
   }
 
 
-  viewOfferDetail(row) {
+  viewOfferDetail(idx) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    this.selectedOffer = Number(row.id);
+    this.selectedOffer = this.jobOffers[idx];
 
     dialogConfig.data = {
-      'jobOffer': this.jobOffers.filter((cur) => cur.id === row.id)[0],
+      'jobOffer': this.selectedOffer,
       'isFiltered': this.isFiltered
     }
 
@@ -74,20 +74,37 @@ export class OffersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
+
         let newUser: Partial<User> = {};
+        let newOffer: Partial<Offer> = {};
+        Object.assign(newOffer, this.selectedOffer);
+
         newUser.id = this.user.id;
 
         if (data && !this.isFiltered) {
           // the student wants to get subscribed
-          newUser.offers = [this.selectedOffer];
+          newUser.offers = [this.selectedOffer.id];
           this.user.offers.map(of => newUser.offers.push(of));
 
+          // we add the student id to the offer
+          newOffer.users = [newUser.id];
+          this.selectedOffer.users.map((user) => newOffer.users.push(user));
 
         } else if (data && this.isFiltered) {
           // the student wants to remove subscription to the offer
-          newUser.offers = this.user.offers.filter(offerId => offerId !== this.selectedOffer);
+          newUser.offers = this.user.offers.filter(offerId => offerId !== this.selectedOffer.id);
+
+          // we remove the student id from the offer
+          newOffer.users = this.selectedOffer.users.filter(userid => userid == newUser.id);
         }
+
+        // we update the user state
         this.usersStoreFacade.updateUser(newUser);
+
+        // then we update the offer state
+
+
+        this.offersStoreFacade.updateOffer(newOffer);
       }
     );
   }

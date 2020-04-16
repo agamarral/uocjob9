@@ -31,5 +31,6 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="offersDisplayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: offersDisplayedColumns" (click)="viewOfferDetail(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: offersDisplayedColumns;let i = index" (click)="viewOfferDetail(i)">
+    </tr>
 </table>

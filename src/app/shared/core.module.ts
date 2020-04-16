@@ -18,21 +18,17 @@ import { UserEffects } from './states/user/effects/user.effects';
 import { AppEffects } from './states/app/effects'; */
 /* import { UsersEffects } from './states/users/effects'; */
 /* import { UsersService } from '../views/users/shared/users.service'; */
-import { ProfileService } from './services/profile.service';
 
 /* import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'; */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationsService } from './services/notifications.service';
-import { StudentsService } from './services/students.service';
 
 /* export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 } */
 
 export const CORE_SERVICES: Provider[] = [
-  ProfileService,
-  StudentsService,
   NotificationsService
   /* {
     provide: HTTP_INTERCEPTORS,

@@ -11,6 +11,8 @@ import { environment } from '@environments/environment';
 import { StoreModule } from '@ngrx/store';
 //import { reducers, metaReducers } from './reducers';
 import { userReducer } from '@shared/state/user/user.reducer';
+import { companyReducer } from '@shared/state/company/company.reducer';
+
 import { EffectsModule } from '@ngrx/effects';
 
 //import { AvatarModule } from 'ngx-avatar';
@@ -35,12 +37,13 @@ import { EffectsModule } from '@ngrx/effects';
           }
         }), */
     StoreModule.forRoot(userReducer),
+    StoreModule.forRoot(companyReducer),
+
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   declarations: [
-    AppComponent,
-
+    AppComponent
     //SigninComponent
   ],
   providers: [],

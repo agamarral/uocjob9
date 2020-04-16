@@ -9,7 +9,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromOffers from '@shared/state/offers';
 import * as fromUsers from '@shared/state/user';
-import { reducers } from 'app/reducers';
 import { OffersEffects } from '@shared/state/offers/offers.effects';
 import { UsersEffects } from '@shared/state/user/user.effects';
 import { environment } from '@environments/environment';
@@ -39,7 +38,8 @@ import { StudentsService } from '@shared/services/students.service';
     OffersComponent
   ],
   providers: [
-    OffersStoreFacade, OffersService, UsersStoreFacade, StudentsService
+    OffersStoreFacade, OffersService,
+    UsersStoreFacade, StudentsService
   ],
   entryComponents: [
     OffersDetailsDialogComponent

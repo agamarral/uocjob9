@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Offer } from '@shared/models/offer.model';
 import * as fromselector from '@shared/state/offers';
 import { State } from '@shared/state/offers/offers.state';
-import { addOffer, deleteOffer, updateOffer } from '@shared/state/offers/offers.actions';
+import { createOffer, deleteOffer, updateOffer } from '@shared/state/offers/offers.actions';
 
 @Injectable()
 export class OffersStoreFacade {
@@ -13,15 +13,15 @@ export class OffersStoreFacade {
     );
 
     constructor(private store: Store<State>) {
-        console.log("My store ");
+        console.log("My store offers");
         console.log(store);
     }
 
     addOffer(offer: Offer) {
-        this.store.dispatch(addOffer({ offer }));
+        this.store.dispatch(createOffer({ offer }));
     }
 
-    updateUser(offer: Partial<Offer>) {
+    updateOffer(offer: Partial<Offer>) {
         this.store.dispatch(updateOffer({ offer }));
     }
 

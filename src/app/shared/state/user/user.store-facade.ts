@@ -35,4 +35,10 @@ export class UsersStoreFacade {
             select(fromselector.getUserById(id))
         );
     }
+    getUserByCredentials(username: string, password: string) {
+        console.log("getUserByCredentials");
+        return this.store.pipe(
+            select(fromselector.getUserByCredentials(username, password))
+        );
+    }
 }

@@ -8,6 +8,7 @@ import { WorkExperienceDetailsDialogComponent } from '@views/work-experience-det
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import moment from 'moment';
 
 @Component({
   selector: 'app-work-experiences',
@@ -58,6 +59,8 @@ export class WorkExperiencesComponent implements OnInit {
       data => {
         if (data) {
           data.uid = this.user.languages.map((value) => value.uid).reduce((total, cur) => { return cur > total ? cur : total }) + 1;
+          data.startdate = moment(data.startdate).format('DD/MM/YYYY');
+          data.enddate = moment(data.enddate).format('DD/MM/YYYY');
 
           let newUser: Partial<User> = {};
           newUser.id = this.user.id;
@@ -69,13 +72,6 @@ export class WorkExperiencesComponent implements OnInit {
         }
       }
     );
-  }
-  convertDates() {
-    // date is set to a readable format
-    this.experiences.forEach((cur) => {
-      cur.startdate = this.dateAdapter.format(new Date(parseInt(cur.startdate) * 1000), "dd/MM/yyyy");
-      cur.enddate = this.dateAdapter.format(new Date(parseInt(cur.enddate) * 1000), "dd/MM/yyyy");
-    });
   }
 
   edit(element, idx) {
@@ -93,6 +89,9 @@ export class WorkExperiencesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       data => {
         if (data) {
+
+          data.startdate = moment(data.startdate).format('DD/MM/YYYY');
+          data.enddate = moment(data.enddate).format('DD/MM/YYYY');
 
           let newUser: Partial<User> = {};
           newUser.id = this.user.id;

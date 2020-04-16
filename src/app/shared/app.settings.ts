@@ -10,6 +10,7 @@ export class AppSettings {
   public static readonly API_ENDPOINT_APP = AppSettings.API_ENDPOINT + 'app/';
   public static readonly API_ENDPOINT_USER = AppSettings.API_ENDPOINT + 'users';
   public static readonly API_ENDPOINT_OFFERS = AppSettings.API_ENDPOINT + 'jobOffers';
+  public static readonly API_ENDPOINT_COMPANIES = AppSettings.API_ENDPOINT + 'companies';
   public static readonly API_ENDPOINT_USER_ME =
     AppSettings.API_ENDPOINT + 'user-me';
   public static readonly API_ENDPOINT_USER_CREATE =

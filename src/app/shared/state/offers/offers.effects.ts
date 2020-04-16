@@ -12,8 +12,8 @@ import { OffersService } from '@shared/services/offers.service';
 import {
     loadAllOffers,
     loadAllOffersSuccess,
-    addOffer,
-    addOfferSuccess,
+    createOffer,
+    createOfferSuccess,
     failure,
     deleteOffer,
     deleteOfferSuccess,
@@ -33,10 +33,10 @@ export class OffersEffects {
     ));
 
     create$ = createEffect(() => this.actions$.pipe(
-        ofType(addOffer),
+        ofType(createOffer),
         pluck('offer'),
         switchMap(offer => this.offersService.createOffer(offer).pipe(
-            map(offer => addOfferSuccess({ offer })),
+            map(offer => createOfferSuccess({ offer })),
             catchError(err => {
                 alert(err.message);
                 return of(failure({ err: { concern: 'CREATE', error: err } }));

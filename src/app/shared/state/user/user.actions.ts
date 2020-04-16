@@ -25,7 +25,7 @@ export const addUser = createAction(
     props<{ user: User }>()
 );
 export const addUserSuccess = createAction(
-    UserActionTypes.ADD_USER,
+    UserActionTypes.ADD_USER_SUCCESS,
     props<{ user: User }>()
 );
 

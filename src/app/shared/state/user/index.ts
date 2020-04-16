@@ -33,3 +33,7 @@ export const getUserById = (id: number) => createSelector(
     getUsersEntitiesState,
     fromreducer.getUserById(id)
 );
+export const getUserByCredentials = (username: string, password: string) => createSelector(
+    getUsersEntitiesState,
+    fromreducer.getUserByCredentials(username, password)
+);

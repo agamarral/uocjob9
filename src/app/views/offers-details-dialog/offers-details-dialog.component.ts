@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Title } from '@angular/platform-browser';
+import { TitleStudy } from '@shared/models/study.model';
 
 @Component({
   selector: 'app-offers-details-dialog',
@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 export class OffersDetailsDialogComponent implements OnInit {
   public offersDetailsDlgForm: FormGroup;
   public titleDisplayedColumns: string[] = ['titleName'];
-  public titles: Title[];
+  public titles: TitleStudy[];
   public showRemoveButton: boolean = false;
 
 

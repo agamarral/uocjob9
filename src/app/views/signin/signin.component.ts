@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProfileService } from '@shared/services/profile.service';
-
+import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
+import { CompaniesStoreFacade } from '@shared/state/company/company.store-facade';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SigninComponent implements OnInit {
@@ -18,7 +20,8 @@ export class SigninComponent implements OnInit {
   public isUsernameValid: boolean = true;
   public isPasswordValid: boolean = true;
 
-  constructor(private fb: FormBuilder, private profileSvc: ProfileService, private router: Router) {
+
+  constructor(private fb: FormBuilder, private usersStoreFacade: UsersStoreFacade, private companiesStoreFacade: CompaniesStoreFacade, private router: Router) {
 
     this.createForm();
   }
@@ -39,7 +42,26 @@ export class SigninComponent implements OnInit {
     const username = this.signinForm.get('username').value;
     const password = this.signinForm.get('password').value;
     console.log("signin requested for user " + username + " with password " + password);
-    this.profileSvc.login(username, password);
+
+    combineLatest(this.usersStoreFacade.getUserByCredentials(username, password),
+      this.companiesStoreFacade.getCompanyByCredentials(username, password)).subscribe(
+        ([student, company]) => {
+
+          if (student && student.hasOwnProperty('username')) {
+            // the observable fron user has returned a valid object, then login
+            // as a student
+            this.router.navigate(['admin', 'student', 'dashboard', student.id]);
+
+          } else if (company && company.hasOwnProperty('username')) {
+            // the observable fron company has returned a valid object, then login
+            // as a company
+            this.router.navigate(['admin', 'company', 'dashboard', company.id]);
+          } else {
+            this.router.navigate(['signup']);
+            console.log('Login for user ' + username + ' has failed, unknown username or password');
+          }
+        }
+      );
   }
   onNameValidation(validity: string) {
     this.isUsernameValid = (validity !== 'INVALID');

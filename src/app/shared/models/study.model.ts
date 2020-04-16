@@ -36,7 +36,7 @@ export class TitleStudy {
   uid: number;
   name: string;
 }
-export class TitlewGrade extends TitleStudy {
+export class TitleGrade extends TitleStudy {
   gradeLevel: string;
 }
 export class LevelStudy {

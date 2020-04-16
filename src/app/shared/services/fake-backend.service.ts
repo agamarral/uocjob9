@@ -69,7 +69,7 @@ export class FakeBackendService implements InMemoryDbService {
           company: 'Ikea',
           position: 'Ingeniero sistema',
           startdate: '08/01/2020',
-          enddate: 'now',
+          enddate: '15/04/2020',
           tasks: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
@@ -91,7 +91,7 @@ export class FakeBackendService implements InMemoryDbService {
             date: '1548320228'
           }
         ],
-        offers: [1, 3],
+        offers: [1, 3, 6],
         license: 'B1,C1',
         aboutMe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
@@ -135,7 +135,8 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: []
       },
       {
         id: 2,
@@ -147,7 +148,7 @@ export class FakeBackendService implements InMemoryDbService {
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
         province: { uid: 1, name: 'MADRID' },
-        municipe: { uid: 1, name: 'Getafe' },
+        municipe: { uid: 65, name: 'Getafe' },
         category: { uid: 1, name: 'Informática y Comunicaciones' },
         date: '28/01/2019',
         title: [
@@ -155,7 +156,8 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: []
       },
       {
         id: 3,
@@ -167,7 +169,7 @@ export class FakeBackendService implements InMemoryDbService {
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
         province: { uid: 1, name: 'MADRID' },
-        municipe: { uid: 1, name: 'Getafe' },
+        municipe: { uid: 65, name: 'Getafe' },
         category: { uid: 1, name: 'Informática y Comunicaciones' },
         date: '28/01/2019',
         title: [
@@ -179,7 +181,8 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: []
       },
       {
         id: 4,
@@ -191,7 +194,7 @@ export class FakeBackendService implements InMemoryDbService {
                       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
                       Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
         province: { uid: 1, name: 'MADRID' },
-        municipe: { uid: 1, name: 'Getafe' },
+        municipe: { uid: 65, name: 'Getafe' },
         category: { uid: 1, name: 'Informática y Comunicaciones' },
         date: '25/01/2019',
         title: [
@@ -199,7 +202,8 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: []
       },
       {
         id: 5,
@@ -211,7 +215,7 @@ export class FakeBackendService implements InMemoryDbService {
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
         province: { uid: 1, name: 'MADRID' },
-        municipe: { uid: 1, name: 'Getafe' },
+        municipe: { uid: 65, name: 'Getafe' },
         category: { uid: 2, name: 'Administración y Gestión' },
         date: '25/01/2019',
         title: [
@@ -219,11 +223,12 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: []
       },
       {
         id: 6,
-        company: { uid: 6, name: 'PEPPER' },
+        company: { uid: 34, name: 'Laboratorios Grifols SA' },
         job: {
           uid: 5, name: 'DESARROLLADOR/A SOFTWARE',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \
@@ -231,7 +236,7 @@ export class FakeBackendService implements InMemoryDbService {
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
         province: { uid: 1, name: 'MADRID' },
-        municipe: { uid: 1, name: 'Getafe' },
+        municipe: { uid: 65, name: 'Getafe' },
         category: { uid: 1, name: 'Informática y Comunicaciones' },
         date: '23/01/2019',
         title: [
@@ -243,7 +248,8 @@ export class FakeBackendService implements InMemoryDbService {
             uid: 13005,
             name: 'Técnico Superior en Desarrollo de Aplicaciones Web'
           }
-        ]
+        ],
+        users: [1]
       }
     ];
     const companies: Company[] = [{
@@ -253,6 +259,7 @@ export class FakeBackendService implements InMemoryDbService {
       brand: 'grifols',
       company: 'Laboratorios Grifols SA',
       cif: 'A58389123',
+      url: 'https://www.grifols.com/en/home',
       address: {
         street: 'CALLE JESUS I MARIA, 6',
         province: {
@@ -260,7 +267,7 @@ export class FakeBackendService implements InMemoryDbService {
           uid: 8
         },
         municipe: {
-          name: 'BARCELONA',
+          name: 'Barcelona',
           uid: 19
         }
       },
@@ -269,7 +276,8 @@ export class FakeBackendService implements InMemoryDbService {
         surname: 'de los Palotes',
         phone: '666666666',
         email: 'pericogrifols@toto.org'
-      }
+      },
+      offers: [6]
     }];
 
     return { users, jobOffers, companies }

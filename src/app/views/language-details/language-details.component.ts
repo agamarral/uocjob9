@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { User } from '@shared/models/user.model';
+import moment from 'moment';
 
 @Component({
   selector: 'app-language-details',
@@ -32,6 +33,20 @@ export class LanguageDetailsComponent implements OnInit {
     this.user$.subscribe((user) => {
       this.languages = user.languages;
       this.user = user;
+
+      if (user.languages) {
+        this.languages = [];
+
+        user.languages.map((cur) => {
+          let newLang = <Language>{};
+          Object.assign(newLang, cur)
+          if (cur.date) {
+            newLang.date = moment.unix(Number(cur.date)).format("DD/MM/YYYY");
+            this.languages.push(newLang);
+          }
+        });
+      }
+
     });
 
   }
@@ -65,6 +80,7 @@ export class LanguageDetailsComponent implements OnInit {
           let newLang = <Language>{};
           Object.assign(newLang, data);
           newLang.uid = this.currentLangUid;
+          newLang.date = data.date.unix().toString();
 
           newUser.languages.push(newLang);
           this.user.languages.map(value => newUser.languages.push(value));
@@ -73,10 +89,6 @@ export class LanguageDetailsComponent implements OnInit {
         }
       }
     );
-  }
-  convertDates() {
-    // date is set to a readable format
-    this.languages.forEach((cur) => { cur.date = this.dateAdapter.format(new Date(parseInt(cur.date) * 1000), "dd/MM/yyyy") });
   }
   edit(element, idx) {
 
@@ -103,6 +115,7 @@ export class LanguageDetailsComponent implements OnInit {
           let newLang = <Language>{};
           Object.assign(newLang, data);
           newLang.uid = this.currentLangUid;
+          newLang.date = data.date.unix().toString();
 
           newUser.languages.push(newLang);
           console.log('data has been pushed');

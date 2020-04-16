@@ -16,13 +16,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
   goToProfile() {
-    this.router.navigate(['admin', 'profile', this.id]);
+    this.router.navigate(['admin', 'student', 'profile', this.id]);
   }
   goToOffers() {
-    this.router.navigate(['admin', 'offers', this.id]);
+    this.router.navigate(['admin', 'student', 'offers', this.id]);
   }
   goToMyOffers() {
-    this.router.navigate(['admin', 'filtered', 'offers', this.id]);
+    this.router.navigate(['admin', 'student', 'filtered', 'offers', this.id]);
   }
 
 }

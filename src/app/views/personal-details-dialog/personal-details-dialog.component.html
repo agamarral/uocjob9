@@ -29,7 +29,7 @@
                     {{errors.pattern}}
                 </mat-error>
                 <mat-error
-                    *ngIf="personalDetailsDlgForm.get('surname').hasError('minlength') || personalDetailsDlgForm.get('name').hasError('maxlength') ">
+                    *ngIf="personalDetailsDlgForm.get('surname').hasError('minlength') || personalDetailsDlgForm.get('surname').hasError('maxlength') ">
                     {{errors.namelength}}
                 </mat-error>
                 <mat-error *ngIf="personalDetailsDlgForm.get('surname').hasError('invalidName')">

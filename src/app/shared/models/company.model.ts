@@ -13,6 +13,8 @@ export interface Company {
     brand: string;
     company: string;
     cif: string;
+    url: string;
     address: UserAddress;
     contact: ContactPerson;
+    offers: number[];
 }

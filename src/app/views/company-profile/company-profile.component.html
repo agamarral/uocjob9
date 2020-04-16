@@ -1,0 +1,83 @@
+<form class="companyDataForm">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-title>Datos de la empresa</div>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-form-field>
+                <mat-label>Marca</mat-label>
+                <input matInput type="text" name="brand" readonly="isReadOnly" [(ngModel)]="company.brand">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Razón Social</mat-label>
+                <input matInput type="text" name="company" readonly="isReadOnly" [(ngModel)]="company.company">
+            </mat-form-field>
+            <div>
+                <mat-form-field>
+                    <mat-label>CIF</mat-label>
+                    <input matInput type="text" name="cif" readonly="isReadOnly" [(ngModel)]="company.cif">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>URL</mat-label>
+                    <input matInput type="text" name="url" readonly="isReadOnly" [(ngModel)]="company.url">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Dirección</mat-label>
+                    <input matInput type="text" name="address" readonly="isReadOnly"
+                        [(ngModel)]="company.address.street">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Provincia</mat-label>
+                    <input matInput type="text" name="province" readonly="isReadOnly"
+                        [(ngModel)]="company.address.province.name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Municipio</mat-label>
+                    <input matInput type="text" name="town" readonly="isReadOnly"
+                        [(ngModel)]="company.address.municipe.name">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-title>Persona de contacto</div>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" name="name" readonly="isReadOnly" [(ngModel)]="company.contact.name">
+
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" name="surname" readonly="isReadOnly"
+                        [(ngModel)]="company.contact.surname">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>Correo electrónico de contacto</mat-label>
+                    <input matInput type="mail" name="email" readonly="isReadOnly" [(ngModel)]="company.contact.email">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Teléfono de contacto principal</mat-label>
+                    <input matInput type="text" name="phone" readonly="isReadOnly" [(ngModel)]="company.contact.phone">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <button class="mat-raised-button" (click)="openDialog()">Editar</button>
+
+</form>

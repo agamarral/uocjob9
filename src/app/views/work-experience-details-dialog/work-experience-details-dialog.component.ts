@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Experience } from '@shared/models/experience.model';
 import { usernameValidator } from '../validators/username-validator';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DateAdapter } from '@angular/material/core';
-import { Moment } from 'moment';
+import moment from 'moment';
 
 @Component({
   selector: 'app-work-experience-details-dialog',
@@ -16,16 +15,16 @@ export class WorkExperienceDetailsDialogComponent implements OnInit {
   public currentExperience: Experience;
 
   constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<WorkExperienceDetailsDialogComponent>,
-    private dateAdapter: DateAdapter<Moment>, @Inject(MAT_DIALOG_DATA) data) {
+    @Inject(MAT_DIALOG_DATA) data) {
 
-    const startdate = new Date(data.startdate);
-    const enddate = new Date(data.enddate);
+    const startdate = new Date(moment(data.startdate, 'DD/MM/YYYY').format('YYYY-MM-DD'));
+    const enddate = new Date(moment(data.enddate, 'DD/MM/YYYY').format('YYYY-MM-DD'));
 
     this.experienceDetailsDlgForm = this.formBuilder.group({
       company: [data.company, [Validators.minLength(3), Validators.maxLength(255), usernameValidator]],
       position: [data.position, [Validators.minLength(3), Validators.maxLength(255), usernameValidator]],
-      startdate: new FormControl(data.startdate, []),
-      enddate: new FormControl(data.startdate, []),
+      startdate: new FormControl(startdate, []),
+      enddate: new FormControl(enddate, []),
       tasks: [data.tasks, Validators.required],
     });
     this.currentExperience = data;
@@ -38,9 +37,6 @@ export class WorkExperienceDetailsDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   save() {
-
-    //lang.date = this.dateAdapter.format(this.languageDetailsDlgForm.get('date').value, "dd/MM/yyyy");
-
     this.dialogRef.close(this.experienceDetailsDlgForm.value);
   }
 }

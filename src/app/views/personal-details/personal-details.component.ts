@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PersonalDetailsDialogComponent } from '../personal-details-dialog/personal-details-dialog.component';
-import { User } from '../../shared/models/user.model';
+import { User, UserAddress } from '../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
@@ -12,7 +12,8 @@ import { map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-personal-details',
   templateUrl: './personal-details.component.html',
-  styleUrls: ['./personal-details.component.css']
+  styleUrls: ['./personal-details.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonalDetailsComponent implements OnInit {
   @Input() public user: User;
@@ -26,19 +27,41 @@ export class PersonalDetailsComponent implements OnInit {
   public isPasswordValid: boolean = true;
   public isReadOnly = false;
 
-
   constructor(private dialog: MatDialog, private usersStorefacade: UsersStoreFacade, private route: ActivatedRoute) {
 
+    this.initialize_user();
     this.user$.subscribe(
       (value) => {
+
         this.isReadOnly = false;
         this.user = value;
         this.isReadOnly = true;
+
       }
     );
   }
 
   ngOnInit() {
+  }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = this.user;
+
+    const dialogRef = this.dialog.open(PersonalDetailsDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data);
+      }
+    );
+  }
+  initialize_user() {
     this.user = {
       password: '',
       id: -1,
@@ -73,25 +96,6 @@ export class PersonalDetailsComponent implements OnInit {
       aboutMe: '',
       otherCompetences: ''
     }
-  }
-
-
-  openDialog() {
-
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-
-    dialogConfig.data = this.user;
-
-    const dialogRef = this.dialog.open(PersonalDetailsDialogComponent, dialogConfig);
-
-    /*     dialogRef.afterClosed().subscribe(
-          data => {
-            console.log("Dialog output:", data);
-          }
-        ); */
   }
 
 }

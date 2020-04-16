@@ -1,4 +1,4 @@
-import { addOfferSuccess, updateOfferSuccess, deleteOfferSuccess, loadAllOffersSuccess } from '@shared/state/offers/offers.actions';
+import { createOfferSuccess, updateOfferSuccess, deleteOfferSuccess, loadAllOffersSuccess } from '@shared/state/offers/offers.actions';
 import { State } from '@shared/state/offers/offers.state';
 import { EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Offer } from '@shared/models/offer.model';
@@ -20,9 +20,13 @@ export const offersReducer = createReducer<State>(
     on(loadAllOffersSuccess, (state, { offers }) =>
         offersAdapter.setAll(offers, state)
     ),
-    on(addOfferSuccess, (state, { offer }) =>
-        offersAdapter.addOne(offer, state)
-    ),
+    on(createOfferSuccess, (state, { offer }) => {
+
+        console.log("addOfferSuccess");
+        console.log(offer);
+        return offersAdapter.addOne(offer, state);
+
+    }),
     on(updateOfferSuccess, (state, { offer }) => {
         console.log('updateOfferSuccess');
         console.log(offer);

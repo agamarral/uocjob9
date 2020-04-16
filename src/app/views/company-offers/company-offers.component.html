@@ -1,0 +1,40 @@
+<h3>Job offers</h3>
+<table mat-table [dataSource]="jobOffers" class="mat-elevation-z8">
+
+    <!-- company name Column -->
+    <ng-container matColumnDef="companyName">
+        <th mat-header-cell *matHeaderCellDef> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
+    </ng-container>
+
+    <!-- category column -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Familia Profesional </th>
+        <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- province column -->
+    <ng-container matColumnDef="province">
+        <th mat-header-cell *matHeaderCellDef> Província </th>
+        <td mat-cell *matCellDef="let element"> {{element.province.name}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button class="mat-raised-button" (click)="createNew()">Añadir oferta</button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element;let i = index">
+            <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
+            <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
+        </mat-cell>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="offersDisplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: offersDisplayedColumns"></tr>
+</table>

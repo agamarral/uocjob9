@@ -7,9 +7,8 @@ import * as cfgsies from '@assets/jsondata/CFGSinstitutions.json';
 import { UploadService } from '@shared/services/upload.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
-import { CollegeStudy, VocationalStudy, TitlewGrade, Institution, Category, Grade } from '@shared/models/study.model';
-import { DateAdapter } from '@angular/material/core';
-import { Moment } from 'moment';
+import { CollegeStudy, VocationalStudy, TitleGrade, Institution, Category, Grade } from '@shared/models/study.model';
+import moment from 'moment';
 
 @Component({
   selector: 'app-study-details-dialog',
@@ -26,7 +25,7 @@ export class StudyDetailsDialogComponent implements OnInit {
   public file: any;
 
   public institutionList: Institution[] = [];
-  public CFGSTitleList: TitlewGrade[] = [];
+  public CFGSTitleList: TitleGrade[] = [];
   public categoryList: Category[] = [];
   public institutionListNames: string[] = [];
   public CFGSTitleListNames: string[] = [];
@@ -36,7 +35,7 @@ export class StudyDetailsDialogComponent implements OnInit {
   @ViewChild('fileUpload', { static: false }) fileUpload: ElementRef;
   @ViewChild('fileUpload_cfgs', { static: false }) fileUpload_cfgs: ElementRef;
 
-  constructor(private formBuilder: FormBuilder, private uploadService: UploadService, private dateAdapter: DateAdapter<Moment>,
+  constructor(private formBuilder: FormBuilder, private uploadService: UploadService,
     private dialogRef: MatDialogRef<StudyDetailsDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
 
 
@@ -66,7 +65,7 @@ export class StudyDetailsDialogComponent implements OnInit {
 
     this.displayCFGS = true;
     this.displayCollege = false;
-    const startdate = new Date(data.date);
+    const startdate = new Date(moment(data.date, 'DD/MM/YYYY').format('YYYY-MM-DD'));
 
     this.initializeCfgsLists();
 
@@ -95,7 +94,7 @@ export class StudyDetailsDialogComponent implements OnInit {
   }
   initialize_college(data: any) {
 
-    const startdate = new Date(data.date);
+    const startdate = new Date(moment(data.date, 'DD/MM/YYYY').format('YYYY-MM-DD'));
     this.displayCFGS = false;
     this.displayCollege = true;
 
@@ -194,7 +193,7 @@ export class StudyDetailsDialogComponent implements OnInit {
       collegeStudy.title = { uid: 1, name: this.studyDetailsDlgForm.get('titleName').value };
       collegeStudy.institution = this.studyDetailsDlgForm.get('institution').value;
       collegeStudy.bilingue = this.studyDetailsDlgForm.get('bilingue').value;
-      collegeStudy.date = this.dateAdapter.format(this.studyDetailsDlgForm.get('date').value, "dd/MM/yyyy");
+      collegeStudy.date = moment(this.studyDetailsDlgForm.get('date').value).unix().toString();
       this.selectedStudy = collegeStudy;
 
     } else {
@@ -208,7 +207,7 @@ export class StudyDetailsDialogComponent implements OnInit {
 
       cfgsStudy.institution = this.institutionList.find((insti) => insti.name === this.studyDetailsDlgForm.get('institution_cfgs').value);
       cfgsStudy.bilingue = this.studyDetailsDlgForm.get('bilingue_cfgs').value;
-      //cfgsStudy.date = this.dateAdapter.format(this.studyDetailsDlgForm.get('date_cfgs').value, "dd/MM/yyyy");
+      cfgsStudy.date = moment(this.studyDetailsDlgForm.get('date_cfgs').value).unix().toString();
       cfgsStudy.category = this.categoryList.find((cat) => cat.name === this.studyDetailsDlgForm.get('jobCategory').value);
       cfgsStudy.dual = this.studyDetailsDlgForm.get('dual').value;
       this.selectedStudy = cfgsStudy;

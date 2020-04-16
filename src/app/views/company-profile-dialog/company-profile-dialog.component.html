@@ -1,0 +1,135 @@
+<mat-dialog-content [formGroup]="companyProfileDlgForm">
+
+    <mat-card>
+
+        <mat-card-header>
+            <div mat-card-avatar class="company-logo"></div>
+            <mat-card-title>Detalles de la empresa</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <mat-form-field>
+                <mat-label>Marca comercial</mat-label>
+                <input matInput type="text" placeholder="Marca Comercial" name="brand" formControlName="brand">
+                <mat-error *ngIf="companyProfileDlgForm.get('brand').hasError('pattern')">
+                    {{errors.pattern}}
+                </mat-error>
+                <mat-error
+                    *ngIf="companyProfileDlgForm.get('brand').hasError('minlength') || companyProfileDlgForm.get('brand').hasError('maxlength') ">
+                    {{errors.namelength}}
+                </mat-error>
+                <mat-error *ngIf="companyProfileDlgForm.get('brand').hasError('invalidName')">
+                    {{errors.spaces}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Razón Social</mat-label>
+                <input matInput type="text" placeholder="Razón Social" name="company" formControlName="company">
+                <mat-error *ngIf="companyProfileDlgForm.get('company').hasError('pattern')">
+                    {{errors.pattern}}
+                </mat-error>
+                <mat-error
+                    *ngIf="companyProfileDlgForm.get('company').hasError('minlength') || companyProfileDlgForm.get('company').hasError('maxlength') ">
+                    {{errors.namelength}}
+                </mat-error>
+                <mat-error *ngIf="companyProfileDlgForm.get('company').hasError('invalidName')">
+                    {{errors.spaces}}
+                </mat-error>
+            </mat-form-field>
+
+            <div>
+                <mat-form-field>
+                    <mat-label>CIF</mat-label>
+                    <input matInput type="text" placeholder="CIF" name="cif" [errorStateMatcher]="matcher"
+                        formControlName="cif">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>URL</mat-label>
+                    <input matInput type="url" placeholder="https://miempresa.com" name="url" formControlName="url">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Dirección</mat-label>
+                    <input matInput type="text" placeholder="Dirección" name="address" formControlName="address">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Provincia</mat-label>
+                    <mat-select formControlName="province" (selectionChange)="changeTown()">
+                        <mat-option *ngFor="let prov of provinceList" [value]="prov">{{prov}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Municipio</mat-label>
+                    <mat-select formControlName="municipe">
+                        <mat-option *ngFor="let town of townList" [value]="town">{{town}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Persona de contacto</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Nombre" name="name" formControlName="name">
+                    <mat-error *ngIf="companyProfileDlgForm.get('name').hasError('pattern')">
+                        {{errors.pattern}}
+                    </mat-error>
+                    <mat-error
+                        *ngIf="companyProfileDlgForm.get('name').hasError('minlength') || companyProfileDlgForm.get('name').hasError('maxlength') ">
+                        {{errors.namelength}}
+                    </mat-error>
+                    <mat-error *ngIf="companyProfileDlgForm.get('name').hasError('invalidName')">
+                        {{errors.spaces}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" placeholder="Apellidos" name="surname" formControlName="surname">
+                    <mat-error *ngIf="companyProfileDlgForm.get('surname').hasError('pattern')">
+                        {{errors.pattern}}
+                    </mat-error>
+                    <mat-error
+                        *ngIf="companyProfileDlgForm.get('surname').hasError('minlength') || companyProfileDlgForm.get('surname').hasError('maxlength') ">
+                        {{errors.namelength}}
+                    </mat-error>
+                    <mat-error *ngIf="companyProfileDlgForm.get('surname').hasError('invalidName')">
+                        {{errors.spaces}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="mail" placeholder="Email" name="username" formControlName="username">
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <mat-label>Teléfono de contacto principal</mat-label>
+                <input matInput ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" formControlName="phone"
+                    (hasError)="hasError($event)" [errorStateMatcher]="matcher" />
+                <mat-error *ngIf="
+                    !companyProfileDlgForm.get('phone').valid &&
+                    companyProfileDlgForm.get('phone').touched
+                    ">This is an <strong>invalid</strong> phone number.
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Cerrar</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Guardar</button>
+</mat-dialog-actions>

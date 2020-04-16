@@ -10,6 +10,7 @@ export interface Offer {
   date: string;
   category: Category;
   title: TitleStudy[];
+  users: number[];
 }
 
 export interface CompanyOffer {
