@@ -66,6 +66,7 @@ export class StudyDetailsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(StudyDetailsDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
+
       data => {
 
         let newUser: Partial<User> = {};
@@ -82,7 +83,9 @@ export class StudyDetailsComponent implements OnInit {
 
         console.log('data has been pushed');
         this.usersStorefacade.updateUser(newUser);
+
       });
+
   }
   edit(element, idx) {
 
@@ -98,18 +101,19 @@ export class StudyDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
+        if (data) {
+          let newUser: Partial<User> = {};
+          newUser.id = this.user.id;
+          newUser.studies = this.user.studies.filter((cur) => cur.uid !== this.currentStudy.uid);
 
-        let newUser: Partial<User> = {};
-        newUser.id = this.user.id;
-        newUser.studies = this.user.studies.filter((cur) => cur.uid !== this.currentStudy.uid);
+          let newStudy = <CollegeStudy | VocationalStudy>{};
+          newStudy.uid = this.currentStudy.uid;
+          Object.assign(newStudy, data);
 
-        let newStudy = <CollegeStudy | VocationalStudy>{};
-        newStudy.uid = this.currentStudy.uid;
-        Object.assign(newStudy, data);
+          newUser.studies.push(newStudy);
 
-        newUser.studies.push(newStudy);
-
-        this.usersStorefacade.updateUser(newUser);
+          this.usersStorefacade.updateUser(newUser);
+        }
       });
   }
   cancelOrDelete(idx) {

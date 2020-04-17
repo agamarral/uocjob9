@@ -33,7 +33,10 @@ export const userReducer = createReducer<State>(
     )
 );
 export const getUserById = (id: number) => (state: State) => state.entities[id];
-export const getUserByCredentials = (username: string, password: string) => (state: State) => {
 
+export const getUserByCredentials = (username: string, password: string) => (state: State) => {
     return Object.values(state.entities).find((user) => user.username == username && user.password == password);
+};
+export const getUserByUsername = (username: string) => (state: State) => {
+    return Object.values(state.entities).find((user) => user.username == username);
 };

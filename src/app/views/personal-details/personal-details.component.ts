@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { DateAdapter } from '@angular/material/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PersonalDetailsDialogComponent } from '../personal-details-dialog/personal-details-dialog.component';
-import { User, UserAddress } from '../../shared/models/user.model';
+import { User } from '../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
@@ -64,6 +63,7 @@ export class PersonalDetailsComponent implements OnInit {
   initialize_user() {
     this.user = {
       password: '',
+      psswrequest: false,
       id: -1,
       username: '',
       avatar_hash: '',

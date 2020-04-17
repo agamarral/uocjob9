@@ -33,6 +33,10 @@ export const companyReducer = createReducer<State>(
     )
 );
 export const getCompanyById = (id: number) => (state: State) => state.entities[id];
+
 export const getCompanyByCredentials = (username: string, password: string) => (state: State) => {
     return Object.values(state.entities).find((company) => company.username === username && company.password === password)
+};
+export const getCompanyByUsername = (username: string) => (state: State) => {
+    return Object.values(state.entities).find((company) => company.username === username)
 };

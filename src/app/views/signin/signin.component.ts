@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
 import { CompaniesStoreFacade } from '@shared/state/company/company.store-facade';
@@ -13,8 +13,6 @@ import { combineLatest } from 'rxjs';
 })
 
 export class SigninComponent implements OnInit {
-  hideRequiredControl = new FormControl(false);
-  floatLabelControl = new FormControl('auto');
 
   public signinForm: FormGroup;
   public isUsernameValid: boolean = true;
@@ -32,8 +30,6 @@ export class SigninComponent implements OnInit {
   }
   createForm() {
     this.signinForm = this.fb.group({
-      hideRequired: this.hideRequiredControl,
-      floatLabel: this.floatLabelControl,
       username: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
     });
@@ -62,6 +58,9 @@ export class SigninComponent implements OnInit {
           }
         }
       );
+  }
+  recallPassword() {
+    this.router.navigate(['forgot-password']);
   }
   onNameValidation(validity: string) {
     this.isUsernameValid = (validity !== 'INVALID');

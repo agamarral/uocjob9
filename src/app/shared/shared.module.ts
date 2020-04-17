@@ -9,6 +9,7 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import { MatIconRegistry } from '@angular/material/icon';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -56,21 +57,10 @@ export const MY_FORMATS = {
     monthYearA11yLabel: 'MM YYYY'
   }
 };
+const appearance: MatFormFieldDefaultOptions = {
+  appearance: 'outline'
+};
 
-
-/*
-import { TranslateModule } from '@ngx-translate/core';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar'; */
-
-// COMPONENTS
-
-// DIRECTIVES
-
-// PIPES
-
-// SERVICES
-//import { AppConfirmService } from './services/app-confirm/app-confirm.service';
-//import { AppComfirmComponent } from './services/app-confirm/app-confirm.component';
 
 
 const MaterialModules = [
@@ -126,7 +116,11 @@ const classesToInclude = [...MaterialModules];
         DatePipe],*/
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     //{ provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }],
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }],
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: appearance
+    }],
   entryComponents: [],
   declarations: [],
   exports: classesToInclude

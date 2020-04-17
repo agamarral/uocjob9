@@ -36,16 +36,12 @@ export class CompanyOffersComponent implements OnInit {
 
       ([company, offers]) => {
         if (company != undefined) {
-          console.log('combineLatest');
-          console.log(company);
-          console.log(this.company);
-          console.log(offers);
+
           this.company = company;
 
           if (offers.length > 0 && this.company.offers != undefined) {
 
             this.jobOffers = offers.filter(offer => this.company.offers.includes(offer.id));
-            console.log(this.jobOffers);
             // sets the id for an eventual new offer
             this.nextOfferId = offers.map((value) => value.id).reduce((total, cur) => { return cur > total ? cur : total }) + 1;
           }

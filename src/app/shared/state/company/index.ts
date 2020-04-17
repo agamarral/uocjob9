@@ -38,3 +38,8 @@ export const getCompanyByCredentials = (username: string, password: string) => c
     getCompaniesEntitiesState,
     fromreducer.getCompanyByCredentials(username, password)
 );
+
+export const getCompanyByUsername = (username: string) => createSelector(
+    getCompaniesEntitiesState,
+    fromreducer.getCompanyByUsername(username)
+);

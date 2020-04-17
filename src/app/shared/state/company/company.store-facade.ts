@@ -41,4 +41,10 @@ export class CompaniesStoreFacade {
             select(fromselector.getCompanyByCredentials(username, password))
         );
     }
+    getCompanyByUsername(username: string) {
+        console.log("getCompanyByUsername " + username);
+        return this.store.pipe(
+            select(fromselector.getCompanyByUsername(username))
+        );
+    }
 }

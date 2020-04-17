@@ -21,6 +21,7 @@ export interface Province {
 }
 export interface User {
   password: string; // Only for mock
+  psswrequest: boolean;
   id: number;
   username: string;
   name: string;

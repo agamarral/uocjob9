@@ -8,6 +8,7 @@ export interface ContactPerson {
 }
 export interface Company {
     password: string; // Only for mock
+    psswrequest: boolean;
     id: number;
     username: string;
     brand: string;

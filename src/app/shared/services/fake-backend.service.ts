@@ -17,6 +17,7 @@ export class FakeBackendService implements InMemoryDbService {
     const users: User[] =
       [{
         password: '1234',
+        psswrequest: false,
         id: 1,
         username: 'natxo.fernandez@toto.org',
         avatar_hash: '',
@@ -255,6 +256,7 @@ export class FakeBackendService implements InMemoryDbService {
     const companies: Company[] = [{
       id: 34,
       username: 'pericogrifols@toto.org',
+      psswrequest: false,
       password: '1234',
       brand: 'grifols',
       company: 'Laboratorios Grifols SA',

@@ -25,5 +25,5 @@
 </mat-card>
 <mat-card-actions>
   <button mat-button color="primary" type="submit" [disabled]="!signinForm.valid" (click)="loginUser()">Log in</button>
-  <button mat-button color="primary">He olvidado mi password</button>
+  <button mat-button color="primary" type="submit" (click)="recallPassword()">He olvidado mi password</button>
 </mat-card-actions>

@@ -61,6 +61,7 @@ export class CompanyProfileComponent implements OnInit {
       id: -1,
       username: '',
       password: '',
+      psswrequest: false,
       brand: '',
       company: '',
       cif: '',

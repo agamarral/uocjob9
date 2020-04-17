@@ -37,3 +37,8 @@ export const getUserByCredentials = (username: string, password: string) => crea
     getUsersEntitiesState,
     fromreducer.getUserByCredentials(username, password)
 );
+
+export const getUserByUsername = (username: string) => createSelector(
+    getUsersEntitiesState,
+    fromreducer.getUserByUsername(username)
+);
