@@ -1,6 +1,3 @@
-img {
-    height: 94px; //so that it takes up full space
-    width: 224px;
-    object-fit: cover; 
-    object-position: center; /* this centers and crops the image so that it doesn't break the aspect ratio */
-  }
+.mat-card-header {
+  width : 25vw;
+}

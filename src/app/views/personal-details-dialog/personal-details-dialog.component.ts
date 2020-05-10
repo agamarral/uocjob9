@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -35,6 +35,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-personal-details-dialog',
   templateUrl: './personal-details-dialog.component.html',
   styleUrls: ['./personal-details-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
   /*   providers: [
       { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
       { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }] */
@@ -47,6 +48,7 @@ export class PersonalDetailsDialogComponent implements OnInit {
   public townList: string[] = [];
   matcher = new MyErrorStateMatcher();
   private user: User;
+  public theme: string;
 
   public errors: { [key: string]: string } = {
     id: 'El formato de identificador es incorrecto',
@@ -62,6 +64,7 @@ export class PersonalDetailsDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data) {
 
     this.user = data;
+
     towndata['default'].forEach((value) => { this.provinceList.push(value.name) });
     this.updateTownList(data.address.province.name);
 

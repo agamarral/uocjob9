@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-company',
   templateUrl: './dashboard-company.component.html',
-  styleUrls: ['./dashboard-company.component.scss']
+  styleUrls: ['./dashboard-company.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DashboardCompanyComponent implements OnInit {
 

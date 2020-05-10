@@ -2,23 +2,27 @@
     <mat-card>
 
         <mat-card-header>
-            <h3 mat-card-title>Oferta de trabajo</h3>
+            <section class="mat-typography">
+                <h3 mat-card-title>Oferta de trabajo</h3>
+            </section>
         </mat-card-header>
         <mat-card-content>
             <fieldset>
                 <legend>Detalle de la oferta</legend>
-                <mat-form-field>
-                    <mat-label>Empresa</mat-label>
-                    <input matInput type="text" readonly="true" name="company" formControlName="company">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-label>Puesto</mat-label>
-                    <input matInput type="text" readonly="true" name="position" formControlName="position">
-                </mat-form-field>
-
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="full-width-field">
+                        <mat-label>Empresa</mat-label>
+                        <input matInput type="text" readonly="true" name="company" formControlName="company">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-field">
+                        <mat-label>Puesto</mat-label>
+                        <input matInput type="text" readonly="true" name="position" formControlName="position">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-field">
                         <mat-label>Descripción del puesto</mat-label>
                         <textarea matInput name="jobDescription" [matTextareaAutosize] readonly="true"
                             formControlName="jobDescription"></textarea>
@@ -29,11 +33,11 @@
                 <legend>Municipio</legend>
                 <div>
 
-                    <mat-form-field>
+                    <mat-form-field class="half-width-field">
                         <mat-label>Provincia</mat-label>
                         <input matInput type="text" readonly="true" name="province" formControlName="province">
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="half-width-field">
                         <mat-label>Municipio</mat-label>
                         <input matInput type="text" readonly="true" name="town" formControlName="town">
                     </mat-form-field>
@@ -42,19 +46,20 @@
             <fieldset>
                 <legend>Destinado a profesional de:</legend>
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="full-width-field">
                         <mat-label>Familia profesional</mat-label>
                         <input matInput type="text" readonly="true" name="jobCategory" formControlName="jobCategory">
                     </mat-form-field>
                 </div>
-                <h3>Títulos compatibles con la oferta</h3>
+                <section class="mat-typography">
+                    <h3>Títulos compatibles con la oferta</h3>
+                </section>
                 <table mat-table [dataSource]="titles" class="mat-elevation-z8">
                     <!-- id Column -->
                     <ng-container matColumnDef="id">
                         <th mat-header-cell *matHeaderCellDef> id </th>
                         <td mat-cell *matCellDef="let element"> {{element.uid}} </td>
                     </ng-container>
-
                     <!-- title name Column -->
                     <ng-container matColumnDef="titleName">
                         <th mat-header-cell *matHeaderCellDef> Denominación del título </th>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { CollegeStudy, VocationalStudy } from '@shared/models/study.model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { StudyDetailsDialogComponent } from '../study-details-dialog/study-details-dialog.component';
@@ -14,9 +14,10 @@ import moment from 'moment';
   selector: 'app-study-details',
   templateUrl: './study-details.component.html',
   styleUrls: ['./study-details.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class StudyDetailsComponent implements OnInit {
+  @Input() theme: string;
   public studies: (CollegeStudy | VocationalStudy)[] = [];
   public currentStudy: (CollegeStudy | VocationalStudy);
   public dataSource: string[];
@@ -63,6 +64,7 @@ export class StudyDetailsComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {};
+    dialogConfig.panelClass = "light-theme";
 
     const dialogRef = this.dialog.open(StudyDetailsDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
@@ -95,6 +97,8 @@ export class StudyDetailsComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = element;
+    dialogConfig.panelClass = "light-theme";
+
     this.currentStudy = this.user.studies[idx];
 
     const dialogRef = this.dialog.open(StudyDetailsDialogComponent, dialogConfig);

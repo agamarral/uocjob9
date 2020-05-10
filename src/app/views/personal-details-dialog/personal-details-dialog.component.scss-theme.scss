@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@mixin personal-details-dialog-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    .mat-option.mat-selected{
+        color: mat-color($primary);
+      }
+}

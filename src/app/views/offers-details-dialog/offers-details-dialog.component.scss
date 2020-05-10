@@ -1,0 +1,27 @@
+@import '../../../styles-variables.scss';
+
+.half-width-field {
+    width: 30vw;
+    margin-right: 3vw;
+  
+  }
+
+  .full-width-field {
+    width: 70vw;
+    margin-right: 3vw;
+  }
+
+table.mat-table {
+
+    width: 60vw;
+    margin-left:2vw;
+
+    td.mat-cell {
+        font-size: $size-text-in-table;
+        text-align: center;
+    }
+    th.mat-header-cell {
+        text-align: center;
+
+    }
+}

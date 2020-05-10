@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { languageCatalog, languageLevels, Language } from '@shared/models/language.model';
@@ -7,7 +7,8 @@ import moment from 'moment';
 @Component({
   selector: 'app-language-details-dialog',
   templateUrl: './language-details-dialog.component.html',
-  styleUrls: ['./language-details-dialog.component.scss']
+  styleUrls: ['./language-details-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 

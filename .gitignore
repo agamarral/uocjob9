@@ -2,7 +2,7 @@
 
 # compiled output
 /dist
-/tmp
+/e2e
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
@@ -30,6 +30,7 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.editorconfig
 
 # misc
 /.sass-cache
@@ -40,6 +41,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+karma.conf.js
 
 # System Files
 .DS_Store

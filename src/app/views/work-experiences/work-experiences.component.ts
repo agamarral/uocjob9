@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Experience } from '@shared/models/experience.model';
 import { User } from '@shared/models/user.model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -16,10 +16,11 @@ import moment from 'moment';
   styleUrls: ['./work-experiences.component.scss']
 })
 export class WorkExperiencesComponent implements OnInit {
-
+  @Input() theme: string;
   public experiences: Experience[];
   public currentExpId: number;
   public user: User;
+
 
   user$: Observable<User> = this.route.params.pipe(
     map(params => params.id),
@@ -43,7 +44,7 @@ export class WorkExperiencesComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
+    dialogConfig.panelClass = this.theme;
     dialogConfig.data = {
       company: '',
       position: '',
@@ -80,6 +81,7 @@ export class WorkExperiencesComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.panelClass = this.theme;
     console.log(element);
     this.currentExpId = this.experiences[idx].uid;
     dialogConfig.data = element;

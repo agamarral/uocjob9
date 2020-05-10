@@ -1,5 +1,9 @@
-<h3>Job offers</h3>
-<table mat-table [dataSource]="jobOffers" class="mat-elevation-z8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="mat-typography">
+    <h3>Job offers</h3>
+</section>
+
+<table mat-table [dataSource]="jobOffers" class="mat-elevation-z8 formal-theme">
 
     <!-- company name Column -->
     <ng-container matColumnDef="companyName">
@@ -28,11 +32,17 @@
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-            <button class="mat-raised-button" (click)="createNew()">Añadir oferta</button>
+            <button class="mat-raised-button" (click)="createNew()">
+                <mat-icon color="primary">add</mat-icon>
+            </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element;let i = index">
-            <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
-            <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
+            <button class="mat-raised-button" (click)="edit(element, i)">
+                <mat-icon color="primary">create</mat-icon>
+            </button>
+            <button class="mat-raised-button" (click)="cancelOrDelete(i)">
+                <mat-icon color="warn">clear</mat-icon>
+            </button>
         </mat-cell>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="offersDisplayedColumns"></tr>

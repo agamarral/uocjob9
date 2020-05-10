@@ -1,5 +1,8 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-divider inset=“true”></mat-divider>
-<h3>Idiomas</h3>
+<section class="mat-typography">
+    <h3>Idiomas</h3>
+</section>
 <table mat-table [dataSource]="languages" class="mat-elevation-z8">
 
     <!-- language name Column -->
@@ -24,11 +27,17 @@
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-            <button class="mat-raised-button" (click)="createNew()">Añadir idioma</button>
+            <button class="mat-raised-button" (click)="createNew()">
+                <mat-icon color="primary">add</mat-icon>
+            </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let element;let i = index">
-            <button class="mat-raised-button" (click)="edit(element, i)">Editar</button>
-            <button class="mat-raised-button" (click)="cancelOrDelete(i)">Borrar</button>
+            <button class="mat-raised-button" (click)="edit(element, i)">
+                <mat-icon color="primary">create</mat-icon>
+            </button>
+            <button class="mat-raised-button" (click)="cancelOrDelete(i)">
+                <mat-icon color="warn">clear</mat-icon>
+            </button>
         </mat-cell>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="languagesDisplayedColumns"></tr>

@@ -1,0 +1,10 @@
+$jobs-app-formal-primary: mat-palette($mat-teal, 500, 200, 700);
+$jobs-app-formal-accent: mat-palette($mat-teal, 500, 200, 700);
+$jobs-app-formal-warn: mat-palette($mat-deep-orange,  500, 200, 700);
+
+
+$jobs-app-formal-theme: mat-light-theme(
+  $jobs-app-formal-primary,
+  $jobs-app-formal-accent,
+  $jobs-app-formal-warn
+);

@@ -1,23 +1,27 @@
 <mat-dialog-content [formGroup]="offersDetailsDlgForm">
     <mat-card>
         <mat-card-header>
-            <h3 mat-card-title>Oferta de trabajo</h3>
+            <section class="mat-typography">
+                <h2 mat-card-title>Oferta de trabajo</h2>
+            </section>
         </mat-card-header>
         <mat-card-content>
             <fieldset>
                 <legend>Detalle de la oferta</legend>
-                <mat-form-field>
-                    <mat-label>Empresa</mat-label>
-                    <input matInput type="text" name="company" readOnly="true" formControlName="company">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-label>Puesto</mat-label>
-                    <input matInput type="text" name="position" formControlName="position">
-                </mat-form-field>
-
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="full-width-field">
+                        <mat-label>Empresa</mat-label>
+                        <input matInput type="text" name="company" readOnly="true" formControlName="company">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-field">
+                        <mat-label>Puesto</mat-label>
+                        <input matInput type="text" name="position" formControlName="position">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-field">
                         <mat-label>Descripción del puesto</mat-label>
                         <textarea matInput name="jobDescription" [matTextareaAutosize]
                             formControlName="jobDescription"></textarea>
@@ -26,15 +30,16 @@
             </fieldset>
             <fieldset>
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="half-width-field">
                         <mat-label>Provincia</mat-label>
-                        <mat-select formControlName="province" (selectionChange)="changeTown()">
+                        <mat-select panelClass="formal-theme" formControlName="province"
+                            (selectionChange)="changeTown()">
                             <mat-option *ngFor="let prov of provinceList" [value]="prov">{{prov}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="half-width-field">
                         <mat-label>Municipio</mat-label>
-                        <mat-select formControlName="town">
+                        <mat-select panelClass="formal-theme" formControlName="town">
                             <mat-option *ngFor="let town of townList" [value]="town">{{town}}</mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -44,20 +49,21 @@
                 <legend>Destinado a profesional de:</legend>
 
                 <div>
-                    <mat-form-field>
+                    <mat-form-field class="full-width-field">
                         <mat-label>Familia profesional</mat-label>
                         <input matInput type="text" name="jobCategory" formControlName="jobCategory">
                     </mat-form-field>
-
-                    <mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-field">
                         <mat-label>Título</mat-label>
                         <input matInput type="text" name="title" formControlName="title">
                     </mat-form-field>
                 </div>
             </fieldset>
-
-            <h3>Candidatos</h3>
-
+            <section class="mat-typography">
+                <h3>Candidatos</h3>
+            </section>
             <table mat-table [dataSource]="candidates" class="mat-elevation-z8">
 
                 <!-- candidate name Column -->
@@ -76,7 +82,8 @@
                 <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef></mat-header-cell>
                     <mat-cell *matCellDef="let element;let i = index">
-                        <button class="mat-raised-button" (click)="selectCandidate(element)">Seleccionar</button>
+                        <button class="mat-raised-button mat-primary"
+                            (click)="selectCandidate(element)">Seleccionar</button>
                         <button class="mat-raised-button" (click)="discardCandidate(element)">Descartar</button>
                     </mat-cell>
                 </ng-container>

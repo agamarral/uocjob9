@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+$success-colors: mat-palette($mat-green, 400);
+$warning-colors: mat-palette($mat-amber, 400);
+$table-background: mat-color($mat-indigo, 50);
+$table-foreground: mat-color($mat-blue-grey);
+$font-color: #1c313a;
+$size-text-in-table: 14px;
+

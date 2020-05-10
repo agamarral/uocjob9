@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { User } from '@shared/models/user.model';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +9,8 @@ import { map, switchMap } from 'rxjs/operators';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent implements OnInit {
 

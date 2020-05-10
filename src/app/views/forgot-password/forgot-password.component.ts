@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
@@ -6,14 +6,14 @@ import { CompaniesStoreFacade } from '@shared/state/company/company.store-facade
 import { combineLatest } from 'rxjs';
 import { User } from '@shared/models/user.model'
 import { Company } from '@shared/models/company.model'
-import { newArray } from '@angular/compiler/src/util';
-import { CompanyOffersDetailsDialogComponent } from '@views/company-offers-details-dialog/company-offers-details-dialog.component';
+
 
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ForgotPasswordComponent implements OnInit {
   public recallPsswdForm: FormGroup;

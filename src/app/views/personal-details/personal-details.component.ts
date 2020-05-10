@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PersonalDetailsDialogComponent } from '../personal-details-dialog/personal-details-dialog.component';
 import { User } from '../../shared/models/user.model';
@@ -11,11 +11,13 @@ import { map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-personal-details',
   templateUrl: './personal-details.component.html',
-  styleUrls: ['./personal-details.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./personal-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class PersonalDetailsComponent implements OnInit {
   @Input() public user: User;
+  @Input() theme: string;
 
   user$: Observable<User> = this.route.params.pipe(
     map(params => params.id),
@@ -51,6 +53,7 @@ export class PersonalDetailsComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = this.user;
+    dialogConfig.panelClass = this.theme;
 
     const dialogRef = this.dialog.open(PersonalDetailsDialogComponent, dialogConfig);
 

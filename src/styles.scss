@@ -1,2 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/deeppurple-amber';
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber';*/
+@import './styles-variables.scss';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// import our custom theme
+@import '../src/themes/default-theme.scss';
+@import '../src/themes/light-theme.scss';
+@import '../src/themes/formal-theme.scss';
+
+// import custom component themes
+@import './custom-components-theme.scss';
+
+// import custom typography 
+@import './themes/typography.scss';
+
+
+@include angular-material-theme($jobs-app-theme);
+@include custom-components-theme($jobs-app-theme);
+
+
+
+.light-theme {
+    @include angular-material-theme($jobs-app-light-theme);
+    @include custom-components-theme($jobs-app-light-theme);
+}
+
+.formal-theme {
+    @include angular-material-theme($jobs-app-formal-theme);
+    @include custom-components-theme($jobs-app-formal-theme);
+}

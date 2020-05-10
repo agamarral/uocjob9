@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TitleStudy } from '@shared/models/study.model';
@@ -6,7 +6,8 @@ import { TitleStudy } from '@shared/models/study.model';
 @Component({
   selector: 'app-offers-details-dialog',
   templateUrl: './offers-details-dialog.component.html',
-  styleUrls: ['./offers-details-dialog.component.scss']
+  styleUrls: ['./offers-details-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OffersDetailsDialogComponent implements OnInit {
   public offersDetailsDlgForm: FormGroup;

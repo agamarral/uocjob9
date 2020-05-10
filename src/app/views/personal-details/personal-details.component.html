@@ -1,60 +1,73 @@
-<h3>Personal Data</h3>
-<form class="personalDataForm">
+<section class="mat-typography">
+    <h3>Personal Data</h3>
+</section>
+<form class="personalDataForm" class="default-theme">
     <mat-card>
-
         <mat-card-header>
-            <div mat-card-avatar class="personal-picture"></div>
+            <img mat-card-image src="../../../assets/img/mike_wazowski.jpg">
         </mat-card-header>
-        <img mat-card-image src="../../../assets/img/mike_wazowski.jpg">
+
         <mat-card-content>
             <div>
-                <mat-form-field>
+                <mat-form-field class="half-width-field">
+                    <mat-label>Nombre</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="name" [(ngModel)]="user.name">
                 </mat-form-field>
-                <mat-form-field>
+
+                <mat-form-field class="half-width-field">
+                    <mat-label>Apellido</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="surname" [(ngModel)]="user.surname">
                 </mat-form-field>
             </div>
+
             <div>
-                <mat-form-field>
+                <mat-form-field class="half-width-field">
+                    <mat-label>Correo electrónico</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="email" [(ngModel)]="user.email">
                 </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
+                <mat-form-field class="half-width-field">
+                    <mat-label>Fecha de Nacimiento</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="birthdate" [(ngModel)]="user.birthdate">
                 </mat-form-field>
             </div>
+
             <div>
-                <mat-form-field>
+                <mat-form-field class="third-width-field">
+                    <mat-label>Teléfono</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="phone" [(ngModel)]="user.phone">
                 </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
+                <mat-form-field class="third-width-field">
+                    <mat-label>NIF/NIE</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="documentNumber"
                         [(ngModel)]="user.documentNumber">
                 </mat-form-field>
+                <mat-form-field class="third-width-field">
+                    <mat-label>Licencia de conducir</mat-label>
+                    <input matInput type="text" readonly="isReadOnly" name="license" [(ngModel)]="user.license">
+                </mat-form-field>
             </div>
+
             <div>
-                <mat-form-field>
+                <mat-form-field class="full-width-field">
+                    <mat-label>Dirección</mat-label>
                     <input matInput type="text" readonly="isReadOnly" name="address" [(ngModel)]="user.address.street">
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field>
-                    <input matInput type="text" readonly="isReadOnly" name="license" [(ngModel)]="user.license">
+
+            </div>
+            <div>
+                <mat-form-field class="full-width-field">
+                    <mat-label>Sobre mí</mat-label>
+                    <textarea matInput [matTextareaAutosize] readonly="isReadOnly" name="aboutMe"
+                        [(ngModel)]="user.aboutMe"></textarea>
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field>
-                    <input matInput type="textarea" readonly="isReadOnly" name="aboutMe" [(ngModel)]="user.aboutMe">
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
-                    <input matInput type="textarea" readonly="isReadOnly" name="otherCompetences"
-                        [(ngModel)]="user.otherCompetences">
+                <mat-form-field class="full-width-field">
+                    <mat-label>Otras competencias</mat-label>
+                    <textarea matInput [matTextareaAutosize] readonly="isReadOnly" name="otherCompetences"
+                        [(ngModel)]="user.otherCompetences"></textarea>
                 </mat-form-field>
             </div>
 
@@ -62,7 +75,7 @@
 
     </mat-card>
 
-    <button mat-button type="button" class="mat-raised-button" (click)="openDialog()">Editar</button>
-
+    <button mat-button [color]="'primary'" type="button" class="mat-raised-button"
+        (click)="openDialog()">Editar</button>
 
 </form>

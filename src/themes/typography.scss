@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+
+$pac3-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif',
+
+  $body-1: mat-typography-level(16px, 24px, 500),
+  $button: mat-typography-level(16px, 24px, 500),
+  $subheading-2: mat-typography-level(16px, 24px, 500, 'Roboto Slab, serif'),
+  $title: mat-typography-level(24x, 32px, 500, 'Roboto Slab, serif'),
+  $headline: mat-typography-level(32px, 48px, 700, 'Roboto Slab, serif'),
+  $subheading-1: mat-typography-level(16px, 24px, 500, 'Roboto Slab, serif'),
+  $caption: mat-typography-level(16px, 24px, 500, 'Roboto Slab, serif'),
+);
+
+
+@include angular-material-typography($pac3-typography);

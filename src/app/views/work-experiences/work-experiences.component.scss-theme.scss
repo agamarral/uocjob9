@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+
+@mixin work-experiences-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    
+    h3 {
+        color:$font-color;
+    }
+    table.mat-table {
+        background-color: mat-color($background, background);
+        color: mat-color($foreground, text);
+        border: 1px solid #bdbbbb;
+    }
+    table.mat-table:hover {     
+        border: 2px solid black;
+    }
+}
+

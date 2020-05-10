@@ -1,0 +1,16 @@
+@import '../../../styles-variables.scss';
+table.mat-table {
+
+    width: 94vw;
+    margin-left:auto;
+    margin-right:auto;
+    td.mat-cell {
+
+        text-align: center;
+        font-size: $size-text-in-table;
+    }
+    th.mat-header-cell {
+        text-align: center;
+
+    }
+}

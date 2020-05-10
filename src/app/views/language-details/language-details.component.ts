@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import { Language } from '@shared/models/language.model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -13,9 +13,11 @@ import moment from 'moment';
 @Component({
   selector: 'app-language-details',
   templateUrl: './language-details.component.html',
-  styleUrls: ['./language-details.component.scss']
+  styleUrls: ['./language-details.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LanguageDetailsComponent implements OnInit {
+  @Input() theme: string;
   public languages: Language[];
   public currentLangUid: number;
   public user: User;
@@ -65,6 +67,7 @@ export class LanguageDetailsComponent implements OnInit {
       name: { uid: 0, name: '' },
       date: '01/01/1970'
     };
+    dialogConfig.panelClass = "light-theme";
     this.currentLangUid = this.user.languages.map((value) => value.uid).reduce((total, cur) => { return cur > total ? cur : total }) + 1;
 
     const dialogRef = this.dialog.open(LanguageDetailsDialogComponent, dialogConfig);
@@ -99,7 +102,7 @@ export class LanguageDetailsComponent implements OnInit {
     console.log(element);
     this.currentLangUid = this.user.languages[idx].uid;
     dialogConfig.data = element;
-
+    dialogConfig.panelClass = "light-theme";
     const dialogRef = this.dialog.open(LanguageDetailsDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(

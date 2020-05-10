@@ -1,0 +1,47 @@
+@import './app/shared/styles/datepicker.scss-theme.scss';
+@import './app/views/company-offers/company-offers.component.scss-theme.scss';
+@import './app/views/company-offers-details-dialog/company-offers-details-dialog.component.scss-theme.scss';
+@import './app/views/company-profile/company-profile.component.scss-theme.scss';
+@import './app/views/company-profile-dialog/company-profile-dialog.component.scss-theme.scss';
+@import './app/views/dashboard/dashboard.component.scss-theme.scss';
+@import './app/views/dashboard-company/dashboard-company.component.scss-theme.scss';
+@import './app/views/profile/profile.component.scss-theme.scss';
+@import './app/views/signin/signin.component.scss-theme.scss';
+@import './app/views/signup/signup.component.scss-theme.scss';
+@import './app/views/forgot-password/forgot-password.component.scss-theme.scss';
+@import './app/views/language-details/language-details.component.scss-theme.scss';
+@import './app/views/language-details-dialog/language-details-dialog.component.scss-theme.scss';
+@import './app/views/offers/offers.component.scss-theme.scss';
+@import './app/views/offers-details-dialog/offers-details-dialog.component.scss-theme.scss';
+@import './app/views/personal-details-dialog/personal-details-dialog.component.scss-theme.scss';
+@import './app/views/personal-details/personal-details.component.scss-theme.scss';
+@import './app/views/study-details/study-details.component.scss-theme.scss';
+@import './app/views/study-details-dialog/study-details-dialog.component.scss-theme.scss';
+@import './app/views/work-experiences/work-experiences.component.scss-theme.scss';
+@import './app/views/work-experience-details-dialog/work-experience-details-dialog.component.scss-theme.scss';
+
+
+@mixin custom-components-theme($theme) {
+    @include company-offers-component-theme($theme);
+    @include company-offers-details-dialog-component-theme($theme);
+    @include company-profile-component-theme($theme);
+    @include company-profile-dialog-component-theme($theme);
+    @include dashboard-component-theme($theme);
+    @include dashboard-company-component-theme($theme);
+    @include forgot-password-component-theme($theme);
+    @include profile-component-theme($theme);
+    @include language-details-component-theme($theme);
+    @include language-details-dialog-component-theme($theme);
+    @include offers-component-theme($theme);
+    @include offers-details-dialog-component-theme($theme);
+    @include personal-details-component-theme($theme);
+    @include personal-details-dialog-component-theme($theme);
+    @include signin-component-theme($theme);
+    @include signup-component-theme($theme);
+    @include study-details-component-theme($theme);
+    @include study-details-dialog-component-theme($theme);
+    @include work-experiences-component-theme($theme);
+    @include work-experience-details-dialog-component-theme($theme);
+    @include mat-datepicker-theme($theme);
+
+}

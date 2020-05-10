@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TitleStudy } from '@shared/models/study.model';
@@ -12,7 +12,8 @@ import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
   selector: 'app-company-offers-details-dialog',
   templateUrl: './company-offers-details-dialog.component.html',
   styleUrls: ['./company-offers-details-dialog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class CompanyOffersDetailsDialogComponent implements OnInit {
   public offersDetailsDlgForm: FormGroup;

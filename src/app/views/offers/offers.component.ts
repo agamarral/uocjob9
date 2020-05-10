@@ -14,6 +14,7 @@ import { OffersDetailsDialogComponent } from '@views/offers-details-dialog/offer
   selector: 'app-offers',
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.scss']
+
 })
 export class OffersComponent implements OnInit {
 
@@ -28,7 +29,8 @@ export class OffersComponent implements OnInit {
   public user: User;
   public jobOffers: Offer[] = [];
   public selectedOffer: Offer;
-  public offersDisplayedColumns: string[] = ['id', 'companyName', 'category', 'date', 'province'];
+  public offersDisplayedColumns: string[] = ['companyName', 'category', 'date', 'province'];
+  public theme = "light-theme";
 
   constructor(private offersStoreFacade: OffersStoreFacade, private usersStoreFacade: UsersStoreFacade,
     private route: ActivatedRoute, private dialog: MatDialog) {
@@ -68,7 +70,7 @@ export class OffersComponent implements OnInit {
       'jobOffer': this.selectedOffer,
       'isFiltered': this.isFiltered
     }
-
+    dialogConfig.panelClass = this.theme;
     console.log(dialogConfig.data);
     const dialogRef = this.dialog.open(OffersDetailsDialogComponent, dialogConfig);
 

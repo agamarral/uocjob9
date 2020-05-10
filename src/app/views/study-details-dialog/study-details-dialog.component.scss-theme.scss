@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@mixin study-details-dialog-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    h3 {
+        color:$font-color;
+    }
+
+    .mat-option.mat-selected.mat-active {
+        color: mat-color($primary);
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Inject, ViewEncapsulation } from '@angular/core';
 import { HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -13,9 +13,11 @@ import moment from 'moment';
 @Component({
   selector: 'app-study-details-dialog',
   templateUrl: './study-details-dialog.component.html',
-  styleUrls: ['./study-details-dialog.component.scss']
+  styleUrls: ['./study-details-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StudyDetailsDialogComponent implements OnInit {
+
   public studyDetailsDlgForm: FormGroup;
   public selectedStudy: CollegeStudy | VocationalStudy;
 
@@ -23,6 +25,7 @@ export class StudyDetailsDialogComponent implements OnInit {
   public displayCollege: boolean;
 
   public file: any;
+
 
   public institutionList: Institution[] = [];
   public CFGSTitleList: TitleGrade[] = [];

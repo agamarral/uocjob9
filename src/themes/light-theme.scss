@@ -1,0 +1,10 @@
+$jobs-app-light-primary: mat-palette($mat-light-green, 500, 200, 700);
+$jobs-app-light-accent: mat-palette($mat-amber, 500, 200, 700);
+$jobs-app-light-warn: mat-palette($mat-deep-orange,  500, 200, 700);
+
+
+$jobs-app-light-theme: mat-light-theme(
+  $jobs-app-light-primary,
+  $jobs-app-light-accent,
+  $jobs-app-light-warn
+);

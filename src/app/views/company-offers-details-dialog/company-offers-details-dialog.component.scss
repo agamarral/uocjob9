@@ -1,0 +1,52 @@
+@import '../../../styles-variables.scss';
+
+.half-width-field {
+    width: 31vw;
+    margin-right: 3vw;
+  
+}
+.third-width-field {
+    width: 19.5vw;
+    margin-right: 3vw;
+  
+}
+.full-width-field {
+    width: 65vw;
+    margin-right: 3vw;
+}
+.mat-card-title {
+    margin-left: 0px;
+   
+}
+table.mat-table {
+
+    width: 60vw;
+    margin-left:auto;
+    margin-right:auto;
+    td.mat-cell {
+        font-size: $size-text-in-table;
+        text-align: center;
+    }
+    th.mat-header-cell {
+        text-align: center;
+
+    }
+    .mat-raised-button {
+        margin-left:auto;
+        margin-right: auto;
+        margin-top: 10px;
+        .mat-icon {
+            font-size: 16px;
+
+        }
+    }
+    .mat-column-candidateName {
+        width: 20vw;
+    }
+    .mat-column-candidateSurname {
+        width: 20vw;
+    }
+    .mat-column-actions {
+        width: 20vw;
+    }
+}   

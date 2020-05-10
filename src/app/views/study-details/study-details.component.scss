@@ -1,0 +1,49 @@
+@import '../../../styles-variables.scss';
+
+h3 {
+    margin-top: 10px;
+    margin-left: 2vw;;
+}
+
+.mat-column-actions {
+    width: 20vw
+
+}
+.mat-column-level {
+    width: 15vw
+}
+.mat-column-title {
+    width: 40vw
+}
+.mat-column-institution {
+    width: 15vw
+}
+.mat-column-date {
+    width: 10vw
+}
+.mat-column-certificate {
+    width: 5vw
+}
+table.mat-table {
+
+    width: 94vw;
+    margin-left:auto;
+    margin-right:auto;
+    td.mat-cell {
+
+        text-align: center;
+        font-size: $size-text-in-table;
+    }
+    th.mat-header-cell {
+        text-align: center;
+
+    }
+    .mat-raised-button {
+        margin-left:auto;
+        margin-right: auto;
+        .mat-icon {
+            font-size: 16px;
+
+        }
+    }
+}

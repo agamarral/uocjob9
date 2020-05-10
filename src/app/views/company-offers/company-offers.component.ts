@@ -13,7 +13,8 @@ import moment from 'moment';
 @Component({
   selector: 'app-company-offers',
   templateUrl: './company-offers.component.html',
-  styleUrls: ['./company-offers.component.scss']
+  styleUrls: ['./company-offers.component.scss'],
+
 })
 export class CompanyOffersComponent implements OnInit {
 
@@ -29,6 +30,7 @@ export class CompanyOffersComponent implements OnInit {
   public selectedOffer: Offer;
   public offersDisplayedColumns: string[] = ['companyName', 'category', 'date', 'province', 'actions'];
   public nextOfferId: number;
+  public theme = "formal-theme";
 
   constructor(private offersStoreFacade: OffersStoreFacade, private companiesStoreFacade: CompaniesStoreFacade,
     private route: ActivatedRoute, private dialog: MatDialog) {
@@ -58,6 +60,7 @@ export class CompanyOffersComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.panelClass = this.theme;
 
     this.selectedOffer = {
       id: this.nextOfferId,
@@ -104,6 +107,8 @@ export class CompanyOffersComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.panelClass = this.theme;
+
     this.selectedOffer = this.jobOffers[idx];
 
     dialogConfig.data = element;

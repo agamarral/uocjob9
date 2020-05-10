@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CompanyProfileDialogComponent } from '@views/company-profile-dialog/company-profile-dialog.component'
 import { Company } from '@shared/models/company.model';
@@ -10,7 +10,8 @@ import { map, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
-  styleUrls: ['./company-profile.component.scss']
+  styleUrls: ['./company-profile.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CompanyProfileComponent implements OnInit {
 
@@ -20,6 +21,7 @@ export class CompanyProfileComponent implements OnInit {
   );
   public isReadOnly = false;
   public company: Company;
+  public theme = "formal-theme";
 
   constructor(private dialog: MatDialog, private companiesStoreFacade: CompaniesStoreFacade, private route: ActivatedRoute) {
     this.company$.subscribe(
@@ -49,6 +51,7 @@ export class CompanyProfileComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = this.company;
+    dialogConfig.panelClass = this.theme;
 
     const dialogRef = this.dialog.open(CompanyProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((data) =>

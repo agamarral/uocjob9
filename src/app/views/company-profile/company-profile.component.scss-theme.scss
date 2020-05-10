@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+
+@mixin company-profile-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+
+    .mat-card-title, mat-form-field {
+        color: $font-color
+       
+    }
+    mat-form-field-infix {
+        border: 1px solid mat-color($primary, 700);
+    }
+    .mat-form-field-label {
+        color: mat-color($primary, 700);
+    }
+
+}

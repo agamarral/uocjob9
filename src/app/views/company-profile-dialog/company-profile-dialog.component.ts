@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -19,7 +19,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-company-profile-dialog',
   templateUrl: './company-profile-dialog.component.html',
-  styleUrls: ['./company-profile-dialog.component.scss']
+  styleUrls: ['./company-profile-dialog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CompanyProfileDialogComponent implements OnInit {
   public companyProfileDlgForm: FormGroup;
@@ -33,7 +34,8 @@ export class CompanyProfileDialogComponent implements OnInit {
   public errors: { [key: string]: string } = {
     namelength: 'El contenido de este campo debe tener una longitud entre 3 y 55 caracteres',
     pattern: 'Este campo solo debe contener caracteres alfanuméricos',
-    spaces: 'Este campo no debe contener espacios al principio o al final del texto'
+    spaces: 'Este campo no debe contener espacios al principio o al final del texto',
+    email: 'Por favor, introduce una dirección de correo válida'
   };
 
   constructor(private formBuilder: FormBuilder, private companiesStoreFacade: CompaniesStoreFacade,
@@ -55,7 +57,7 @@ export class CompanyProfileDialogComponent implements OnInit {
       name: [data.contact.name, [Validators.minLength(3), Validators.maxLength(55), usernameValidator, Validators.pattern(/[a-zA-Z0-9&_\.-]/)]],
       surname: [data.contact.surname, [Validators.minLength(3), Validators.maxLength(55), usernameValidator, Validators.pattern(/[a-zA-Z0-9&_\.-]/)]],
       phone: [data.contact.phone, Validators.required],
-      username: [data.contact.email, Validators.required]
+      username: [data.contact.email, [Validators.required, Validators.email]]
     });
     this.companyProfileDlgForm.get('province').setValue(data.address.province.name);
     this.companyProfileDlgForm.get('municipe').setValue(data.address.municipe.name);

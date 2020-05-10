@@ -1,0 +1,47 @@
+@import '../../../styles-variables.scss';
+
+h3 {
+    margin-top: 10px;
+    margin-left: 2vw;;
+}
+
+
+.mat-column-companyName {
+    width: 20vw
+}
+.mat-column-category {
+    width: 30vw
+}
+.mat-column-date {
+    width: 20vw
+}
+.mat-column-province {
+    width: 20vw
+}
+.mat-column-actions {
+    width: 10vw
+
+}
+table.mat-table {
+
+    width: 94vw;
+    margin-left:auto;
+    margin-right:auto;
+    td.mat-cell {
+        font-size: $size-text-in-table;
+        text-align: center;
+    }
+    th.mat-header-cell {
+        text-align: center;
+
+    }
+    .mat-raised-button {
+        margin-left:auto;
+        margin-right: auto;
+        margin-top: 10px;
+        .mat-icon {
+            font-size: 16px;
+
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersStoreFacade } from '@shared/state/user/user.store-facade';
@@ -9,18 +9,18 @@ import { combineLatest } from 'rxjs';
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 
 export class SigninComponent implements OnInit {
-
   public signinForm: FormGroup;
   public isUsernameValid: boolean = true;
   public isPasswordValid: boolean = true;
 
 
-  constructor(private fb: FormBuilder, private usersStoreFacade: UsersStoreFacade, private companiesStoreFacade: CompaniesStoreFacade, private router: Router) {
 
+  constructor(private fb: FormBuilder, private usersStoreFacade: UsersStoreFacade, private companiesStoreFacade: CompaniesStoreFacade, private router: Router) {
     this.createForm();
   }
   ngOnInit() {
